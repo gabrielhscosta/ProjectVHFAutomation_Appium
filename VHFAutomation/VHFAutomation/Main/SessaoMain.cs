@@ -67,7 +67,7 @@ namespace VHFAutomation.Main
 
 
         #region Valida Login VHF
-        [TestMethod]
+        [TestMethod, TestCategory("ST00 - ValidarLoginModulos")]
         public void CN001_ValidaLogin_VHF()
         {
             CN001LoginVHF vloginvhf = new CN001LoginVHF();
@@ -79,7 +79,7 @@ namespace VHFAutomation.Main
         #endregion
 
         #region Valida Login VHFCaixa
-        [TestMethod]
+        [TestMethod, TestCategory("ST00 - ValidarLoginModulos")]
         public void CN002_ValidaLogin_VHFCaixa()
         {
             CN002LoginVHFCaixa vloginvhfcaixa = new CN002LoginVHFCaixa();
@@ -91,7 +91,7 @@ namespace VHFAutomation.Main
         #endregion
 
         #region Valida Login Central de Reservas
-        [TestMethod]
+        [TestMethod, TestCategory("ST00 - ValidarLoginModulos")]
         public void CN003_ValidaLogin_CentralReservas()
         {
             CN003LoginCentralReservas vlogincr = new CN003LoginCentralReservas();
@@ -103,7 +103,7 @@ namespace VHFAutomation.Main
         #endregion
 
         #region Valida Login Evento
-        [TestMethod]
+        [TestMethod, TestCategory("ST00 - ValidarLoginModulos")]
         public void CN004_ValidaLogin_Evento()
         {
             CN004LoginEvento vloginev = new CN004LoginEvento();
@@ -115,7 +115,7 @@ namespace VHFAutomation.Main
         #endregion
 
         #region Valida Login FrontTurismo
-        [TestMethod]
+        [TestMethod, TestCategory("ST00 - ValidarLoginModulos")]
         public void CN005_ValidaLogin_FrontTurismo()
         {
             CN005LoginFrontTurismo vloginft = new CN005LoginFrontTurismo();
@@ -127,7 +127,7 @@ namespace VHFAutomation.Main
         #endregion
 
         #region Valida Login GlobalCM
-        [TestMethod]
+        [TestMethod, TestCategory("ST00 - ValidarLoginModulos")]
         public void CN006_ValidaLogin_GlobalCM()
         {
             CN006LoginGlobal vloginglobal = new CN006LoginGlobal();
@@ -139,7 +139,7 @@ namespace VHFAutomation.Main
         #endregion
 
         #region Valida Login SPA
-        [TestMethod]
+        [TestMethod, TestCategory("ST00 - ValidarLoginModulos")]
         public void CN007_ValidaLogin_SPA()
         {
             CN007LoginSpa vloginspa = new CN007LoginSpa();
@@ -151,7 +151,7 @@ namespace VHFAutomation.Main
         #endregion
 
         #region Valida Login SSD
-        [TestMethod]
+        [TestMethod, TestCategory("ST00 - ValidarLoginModulos")]
         public void CN008_ValidaLogin_SSD()
         {
             CN008LoginSSD vloginssd = new CN008LoginSSD();
@@ -163,7 +163,7 @@ namespace VHFAutomation.Main
         #endregion
 
         #region Valida Login Telefonia
-        [TestMethod]
+        [TestMethod, TestCategory("ST00 - ValidarLoginModulos")]
         public void CN009_ValidaLogin_Telefonia()
         {
             CN009LoginTelefonia vlogintel = new CN009LoginTelefonia();
@@ -175,7 +175,7 @@ namespace VHFAutomation.Main
         #endregion
 
         #region Valida Login TimeSharing
-        [TestMethod]
+        [TestMethod, TestCategory("ST00 - ValidarLoginModulos")]
         public void CN010_ValidaLogin_TimeSharing()
         {
             CN010LoginTimeSharing vlogints = new CN010LoginTimeSharing();
@@ -194,7 +194,7 @@ namespace VHFAutomation.Main
         #region ST01_Reserva Individual
         
         #region Inserir uma reserva com 01 Hospede novo sem histórico/empresa (Validar FRNH)
-        [TestMethod]
+        [TestMethod, TestCategory("ST01 - Reserva Individual")]
         public void CN0101_ReservaIndividual()
         {
             try

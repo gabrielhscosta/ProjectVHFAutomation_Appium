@@ -41,9 +41,9 @@ namespace VHFAutomation.TestCase
 
             funcComuns.InserirDadosHosp();
 
-            funcComuns.InserirDocConfirmacao();
+            funcComuns.ConfirmarInsercaoDadosHosp();
 
-            
+            funcComuns.InserirDocConfirmacao();
 
             #endregion
         }

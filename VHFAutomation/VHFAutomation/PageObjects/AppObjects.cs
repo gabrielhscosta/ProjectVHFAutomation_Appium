@@ -33,15 +33,24 @@ namespace VHFAutomation.PageObjects
         public string btnVoltar = ("Voltar");
         public string btnFechar = ("Fechar");
         public string btnUhOcupado = ("ocupado");
+        public string TBitBtn = ("TBitBtn");
+        public string btnCidade = ("cidade");
+        public string btnIdioma = ("idioma");
 
         #endregion
 
 
 
-        #region Edit
+        #region Tipos dos Componentes
         public string caixaTexto = ("TEdit");
+        public string tagEdit = ("Edit");
+        public string TwwDBEdit = ("TwwDBEdit");
+        public string TCMDateTimePicker = ("TCMDateTimePicker");
+        public string TCMDBLookupCombo = ("TCMDBLookupCombo");
 
         #endregion
+
+
 
         #region Menus
         public string subMenuIndividual = ("161");
@@ -50,14 +59,22 @@ namespace VHFAutomation.PageObjects
 
 
 
-        #region Screen
+        #region Screen e Window
         public string scrTelaLogin = ("TfrmLogin");
         public string scrTelaPrincipal = ("TfrmPrincipal");
         public string scrTelaPrincipalCAIXA = ("TfrmPrincipalCAIXA");
         public string scrSelecGeral = ("TfrmSelecaoGeral");
         public string scrMontaSelect = ("TfrmMontaSelect");
+        public string scrTelaReserva = ("TfrmReserva");
+        public string winEstada = ("Estada");
+        public string winTipoUhEstadia = ("Tipo de UH Estadia");
+        public string winDadosPrincipais = ("Dados principais");
+        public string winSelecCidade = ("Seleciona cidade");
+        public string winIdiomaHosp = ("Idioma do Hóspede");
+        public string winDocConfirmacaoRes = ("Documento de Confirmação");
 
         #endregion
+
 
 
         #region Text
@@ -87,6 +104,17 @@ namespace VHFAutomation.PageObjects
         public string abrirCombo = ("TBtnWinControl");
         public string comboBoxAgenciaTS = ("TCMDBLookupCombo");
         public string comboBoxGridTs = ("TwwPopupGrid");
+
+        #endregion
+
+
+
+        #region Dados Hóspedes
+
+        public string numNoites = ("3");
+        public string categUhStnd = ("STND");
+        public string idiomaHosp = ("Portugues");
+        public string tipoDocConfirmacao = ("EM");
 
         #endregion
     }

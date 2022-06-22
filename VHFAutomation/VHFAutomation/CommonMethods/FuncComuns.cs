@@ -15,7 +15,7 @@ namespace VHFAutomation.CommonMethods
     {
         public FuncComuns()
         {
-
+            
         }
 
         AppObjects appObjectsVhf = new AppObjects();
@@ -32,24 +32,24 @@ namespace VHFAutomation.CommonMethods
 
         public void InserirNumNoites()
         {
-            var anexResIndiv = acessarModulo.FindElementByClassName("TfrmReserva");
-            var anexEstd = anexResIndiv.FindElementByName("Estada");
-            var allEdits = anexEstd.FindElementsByTagName("Edit");
+            var anexResIndiv = acessarModulo.FindElementByClassName(appObjectsVhf.scrTelaReserva);
+            var anexEstd = anexResIndiv.FindElementByName(appObjectsVhf.winEstada);
+            var allEdits = anexEstd.FindElementsByTagName(appObjectsVhf.tagEdit);
 
-            Debug.WriteLine($"\nQuantidade de Campos TEdit da Estada: {allEdits.Count}");
+            Debug.WriteLine($"\nQtd de campos Edit da Estada: {allEdits.Count}");
 
             var cNoites = allEdits.ElementAt(2);
             new Actions(acessarModulo).MoveToElement(cNoites).DoubleClick().Perform();
             cNoites.Clear();
-            cNoites.SendKeys("3");
+            cNoites.SendKeys(appObjectsVhf.numNoites);
         }
 
         public void PreencherCamposUh()
         {
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnUhOcupado).Click();
 
-            Elementos.EncontraElementoName(acessarModulo, "Tipo de UH Estadia");
-            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhf.caixaTexto).SendKeys("STND");
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.winTipoUhEstadia);
+            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhf.caixaTexto).SendKeys(appObjectsVhf.categUhStnd);
 
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnConfirmar).Click();
         }
@@ -66,28 +66,64 @@ namespace VHFAutomation.CommonMethods
 
         public void InserirDadosHosp()
         {
-            Elementos.EncontraElementosClassName(acessarModulo, "TBitBtn").ElementAt(46).Click();
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TBitBtn).ElementAt(46).Click();
 
-            var allEditsHosp = acessarModulo.FindElementsByTagName("Edit");
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.winDadosPrincipais);
 
-            Debug.WriteLine($"\nQuantidade de Campos TEdit da Estada: {allEditsHosp.Count}");
+            //var allEditsHosp = acessarModulo.FindElementsByClassName("TEdit");
 
-            Elementos.EncontraElementosClassName(acessarModulo, "TEdit").ElementAt(19).SendKeys("TEEST");
-            Elementos.EncontraElementosClassName(acessarModulo, "TEdit").ElementAt(20).SendKeys("TWO");
+            //FindElementsByTagName(appObjectsVhf.tagEdit);
+            //Debug.WriteLine($"\nQtd de campos Edit Dados do Hospede: {allEditsHosp.Count}");
 
-            Elementos.EncontraElementosClassName(acessarModulo, "TBitBtn").ElementAt(47).Click();
+            //var dataNascHosp = acessarModulo.FindElementsByClassName("TCMDateTimePicker");
+
+            //var allLookupCombo = acessarModulo.FindElementsByClassName("TCMDBLookupCombo");
+
+            var dadosHosp = GeradorDadosFakes.ListaDadosFakerPessoa();
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.caixaTexto).ElementAt(19).SendKeys(dadosHosp.NomeFaker);
+            
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.caixaTexto).ElementAt(20).SendKeys(dadosHosp.SobrenomeFaker);
+            
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.caixaTexto).ElementAt(18).SendKeys(dadosHosp.EmailFaker);
+            
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TCMDBLookupCombo).ElementAt(1).SendKeys(dadosHosp.TratamentoHosp);
+            
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TCMDateTimePicker).ElementAt(3).SendKeys(dadosHosp.DtNascFaker);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnCidade).Click();
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.winSelecCidade);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.caixaTexto).ElementAt(6).SendKeys(dadosHosp.CidadeFaker);
+            
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnProcurar).Click();
+            
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnConfirmar).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnIdioma).Click();
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.winIdiomaHosp);
+            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhf.caixaTexto).SendKeys(appObjectsVhf.idiomaHosp);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnConfirmar).Click();
         }
 
+        public void ConfirmarInsercaoDadosHosp()
+        {
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.winDadosPrincipais);
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TBitBtn).ElementAt(46).Click();
+        }
 
         public void InserirDocConfirmacao()
         {
-            Elementos.EncontraElementoName(acessarModulo, "Documento de Confirmação");
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.winDocConfirmacaoRes);
 
-            Elementos.EncontraElementoClassName(acessarModulo, "TEdit").SendKeys("EM");
+            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhf.caixaTexto).SendKeys(appObjectsVhf.tipoDocConfirmacao);
 
-            Elementos.EncontraElementoName(acessarModulo, "Confirmar").Click();
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnConfirmar).Click();
 
-            Elementos.EncontraElementosClassName(acessarModulo, "TwwDBEdit").ElementAt(7).SendKeys("teste@gmail.com");
+            var emailConfirRes = GeradorDadosFakes.ListaDadosFakerPessoa();
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TwwDBEdit).ElementAt(7).SendKeys(emailConfirRes.EmailFaker);
 
             //Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnConfirmar).Click();
 
