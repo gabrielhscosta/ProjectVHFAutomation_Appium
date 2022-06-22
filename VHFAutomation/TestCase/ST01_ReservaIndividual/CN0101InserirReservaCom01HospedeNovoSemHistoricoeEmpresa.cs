@@ -45,6 +45,8 @@ namespace VHFAutomation.TestCase
 
             funcComuns.InserirDocConfirmacao();
 
+            funcComuns.ValidarOrcamentoRes();
+
             #endregion
         }
 

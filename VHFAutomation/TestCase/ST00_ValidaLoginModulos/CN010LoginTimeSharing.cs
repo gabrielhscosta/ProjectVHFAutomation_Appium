@@ -52,8 +52,8 @@ namespace VHFAutomation.TestCase
             
             Thread.Sleep(1000);
 
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsTs.caixaTexto).ElementAt(0).SendKeys(appObjectsTs.userSys);
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsTs.caixaTexto).ElementAt(1).SendKeys(appObjectsTs.passSys);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsTs.TEdit).ElementAt(0).SendKeys(appObjectsTs.userSys);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsTs.TEdit).ElementAt(1).SendKeys(appObjectsTs.passSys);
             
             Elementos.EncontraElementoName(acessarModulo, appObjectsTs.btnConfirmar).Click();
             #endregion

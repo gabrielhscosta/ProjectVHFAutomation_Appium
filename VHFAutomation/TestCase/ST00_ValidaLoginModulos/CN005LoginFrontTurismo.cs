@@ -42,16 +42,12 @@ namespace VHFAutomation.TestCase
 
             #region Usuário e Pass Sistema
 
-            WebDriverWait waitLogin = new WebDriverWait(acessarModulo, TimeSpan.FromSeconds(20));
-            
-            Debug.WriteLine($"*** Identificador da janela: {acessarModulo.WindowHandles}");
+            WebDriverWait waitLogin = new WebDriverWait(acessarModulo, TimeSpan.FromSeconds(60));
 
-            var anexLogin = acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.ElementAt(0));
-            anexLogin.Title.ToString();
-            anexLogin.Manage().Window.Equals(appObjectsFTurismo.titleTelaLogin);
+            Elementos.EncontraElementoName(acessarModulo, appObjectsFTurismo.titleTelaLogin);
 
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsFTurismo.caixaTexto).ElementAt(0).SendKeys(appObjectsFTurismo.userSys);
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsFTurismo.caixaTexto).ElementAt(1).SendKeys(appObjectsFTurismo.passSys);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsFTurismo.TEdit).ElementAt(0).SendKeys(appObjectsFTurismo.userSys);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsFTurismo.TEdit).ElementAt(1).SendKeys(appObjectsFTurismo.passSys);
             
             Elementos.EncontraElementoName(acessarModulo, appObjectsFTurismo.btnConfirmar).Click();
             #endregion

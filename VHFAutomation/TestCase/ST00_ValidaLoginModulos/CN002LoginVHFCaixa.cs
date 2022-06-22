@@ -42,28 +42,25 @@ namespace VHFAutomation.TestCase
             #region Usuário e Pass Sistema
 
             WebDriverWait waitLogin = new WebDriverWait(acessarModulo, TimeSpan.FromSeconds(60));
-            
-            Debug.WriteLine($"*** Identificador da janela: {acessarModulo.WindowHandles}");
 
-            var anexLogin = acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.ElementAt(0));
-            anexLogin.Title.ToString();
-            anexLogin.Manage().Window.Equals(appObjectsVhfCaixa.titleTelaLogin);
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhfCaixa.titleTelaLogin);
 
-            Elementos.EncontraElementosClassName(acessarModulo,   appObjectsVhfCaixa.caixaTexto).ElementAt(0).SendKeys( appObjectsVhfCaixa.userSys);
-            Elementos.EncontraElementosClassName(acessarModulo,  appObjectsVhfCaixa.caixaTexto).ElementAt(1).SendKeys( appObjectsVhfCaixa.passSys);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhfCaixa.TEdit).ElementAt(0).SendKeys( appObjectsVhfCaixa.userSys);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhfCaixa.TEdit).ElementAt(1).SendKeys( appObjectsVhfCaixa.passSys);
             
-            Elementos.EncontraElementoName(acessarModulo,  appObjectsVhfCaixa.btnConfirmar).Click();
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhfCaixa.btnConfirmar).Click();
+
             #endregion
 
             
 
             #region Seleciona Empresa
 
-            Elementos.EncontraElementoClassName(acessarModulo,  appObjectsVhfCaixa.comboBoxLogin);
+            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhfCaixa.comboBoxLogin);
 
-            Elementos.EncontraElementosClassName(acessarModulo,  appObjectsVhfCaixa.comboBoxLogin).ElementAt(0).Clear();
-            Elementos.EncontraElementosClassName(acessarModulo,  appObjectsVhfCaixa.comboBoxLogin).ElementAt(0).SendKeys( appObjectsVhfCaixa.empresaSys);
-            Elementos.EncontraElementosClassName(acessarModulo,  appObjectsVhfCaixa.comboBoxLogin).ElementAt(0).SendKeys(Keys.Tab);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhfCaixa.comboBoxLogin).ElementAt(0).Clear();
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhfCaixa.comboBoxLogin).ElementAt(0).SendKeys( appObjectsVhfCaixa.empresaSys);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhfCaixa.comboBoxLogin).ElementAt(0).SendKeys(Keys.Tab);
 
             Elementos.EncontraElementoName(acessarModulo,  appObjectsVhfCaixa.btnConfirmar).Click();
 
@@ -75,12 +72,9 @@ namespace VHFAutomation.TestCase
         {
             #region Conferência Tela Principal VHF Caixa
 
-            Thread.Sleep(1000);
+            WebDriverWait waitLogin = new WebDriverWait(acessarModulo, TimeSpan.FromSeconds(60));
 
-            Debug.WriteLine($"*** Identificador da janela: {acessarModulo.WindowHandles}");
-
-            var anexCc = acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.ElementAt(0));
-            anexCc.Title.ToString();
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhfCaixa.scrTelaCartaoConsCaixa);
 
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhfCaixa.btnCancelar).Click();
 

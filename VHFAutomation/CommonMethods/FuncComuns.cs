@@ -32,6 +32,7 @@ namespace VHFAutomation.CommonMethods
 
         public void InserirNumNoites()
         {
+            /*
             var anexResIndiv = acessarModulo.FindElementByClassName(appObjectsVhf.scrTelaReserva);
             var anexEstd = anexResIndiv.FindElementByName(appObjectsVhf.winEstada);
             var allEdits = anexEstd.FindElementsByTagName(appObjectsVhf.tagEdit);
@@ -42,6 +43,16 @@ namespace VHFAutomation.CommonMethods
             new Actions(acessarModulo).MoveToElement(cNoites).DoubleClick().Perform();
             cNoites.Clear();
             cNoites.SendKeys(appObjectsVhf.numNoites);
+            */
+
+            var anexEstd = acessarModulo.FindElementByName(appObjectsVhf.winEstada);
+
+            var editNoites = anexEstd.FindElementsByClassName(appObjectsVhf.TEdit);
+
+            var noitesEstd = editNoites.ElementAt(0);
+            new Actions(acessarModulo).MoveToElement(noitesEstd).DoubleClick().Perform();
+            noitesEstd.Clear();
+            noitesEstd.SendKeys(appObjectsVhf.numNoites);
         }
 
         public void PreencherCamposUh()
@@ -49,7 +60,7 @@ namespace VHFAutomation.CommonMethods
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnUhOcupado).Click();
 
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.winTipoUhEstadia);
-            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhf.caixaTexto).SendKeys(appObjectsVhf.categUhStnd);
+            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhf.TEdit).SendKeys(appObjectsVhf.categUhStnd);
 
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnConfirmar).Click();
         }
@@ -81,11 +92,11 @@ namespace VHFAutomation.CommonMethods
 
             var dadosHosp = GeradorDadosFakes.ListaDadosFakerPessoa();
 
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.caixaTexto).ElementAt(19).SendKeys(dadosHosp.NomeFaker);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TEdit).ElementAt(19).SendKeys(dadosHosp.NomeFaker);
             
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.caixaTexto).ElementAt(20).SendKeys(dadosHosp.SobrenomeFaker);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TEdit).ElementAt(20).SendKeys(dadosHosp.SobrenomeFaker);
             
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.caixaTexto).ElementAt(18).SendKeys(dadosHosp.EmailFaker);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TEdit).ElementAt(18).SendKeys(dadosHosp.EmailFaker);
             
             Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TCMDBLookupCombo).ElementAt(1).SendKeys(dadosHosp.TratamentoHosp);
             
@@ -93,7 +104,7 @@ namespace VHFAutomation.CommonMethods
 
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnCidade).Click();
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.winSelecCidade);
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.caixaTexto).ElementAt(6).SendKeys(dadosHosp.CidadeFaker);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TEdit).ElementAt(6).SendKeys(dadosHosp.CidadeFaker);
             
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnProcurar).Click();
             
@@ -101,7 +112,7 @@ namespace VHFAutomation.CommonMethods
 
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnIdioma).Click();
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.winIdiomaHosp);
-            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhf.caixaTexto).SendKeys(appObjectsVhf.idiomaHosp);
+            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhf.TEdit).SendKeys(appObjectsVhf.idiomaHosp);
 
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnConfirmar).Click();
         }
@@ -117,16 +128,20 @@ namespace VHFAutomation.CommonMethods
         {
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.winDocConfirmacaoRes);
 
-            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhf.caixaTexto).SendKeys(appObjectsVhf.tipoDocConfirmacao);
+            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhf.TEdit).SendKeys(appObjectsVhf.tipoDocConfirmacao);
 
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnConfirmar).Click();
 
             var emailConfirRes = GeradorDadosFakes.ListaDadosFakerPessoa();
 
             Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TwwDBEdit).ElementAt(7).SendKeys(emailConfirRes.EmailFaker);
+        }
+
+        public void ValidarOrcamentoRes()
+        {
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.txtVisualOrcamento).Click();
 
             //Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnConfirmar).Click();
-
         }
     }
 }

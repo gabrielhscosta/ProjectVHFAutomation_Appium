@@ -48,8 +48,8 @@ namespace VHFAutomation.TestCase
             anexLogin.Title.ToString();
             anexLogin.Manage().Window.Equals(appObjectsCentralR.titleTelaLogin);
 
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsCentralR.caixaTexto).ElementAt(0).SendKeys(appObjectsCentralR.userSys);
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsCentralR.caixaTexto).ElementAt(1).SendKeys(appObjectsCentralR.passSys);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsCentralR.TEdit).ElementAt(0).SendKeys(appObjectsCentralR.userSys);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsCentralR.TEdit).ElementAt(1).SendKeys(appObjectsCentralR.passSys);
             
             Elementos.EncontraElementoName(acessarModulo, appObjectsCentralR.btnConfirmar).Click();
             #endregion
