@@ -45,15 +45,15 @@ namespace VHFAutomation.TestCase
             
             WebDriverWait waitLogin = new WebDriverWait(acessarModulo, TimeSpan.FromSeconds(60));
 
-            /*
+            
             Debug.WriteLine($"*** Identificador da janela: {acessarModulo.WindowHandles}");
 
             var anexLogin = acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.ElementAt(0));
             anexLogin.Title.ToString();
             anexLogin.Manage().Window.Equals(appObjectsVhf.titleTelaLogin);
-            */
+            
 
-            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.titleTelaLogin);
+            //Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.titleTelaLogin);
 
             Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TEdit).ElementAt(0).SendKeys(appObjectsVhf.userSys);
             Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TEdit).ElementAt(1).SendKeys(appObjectsVhf.passSys);

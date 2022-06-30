@@ -33,6 +33,8 @@ namespace VHFAutomation.PageObjects
         public string btnVoltar = ("Voltar");
         public string btnFechar = ("Fechar");
         public string btnUhOcupado = ("ocupado");
+        public string btnUhCobrado = ("cobrado");
+        public string btnUhNumero = ("numero");
         public string TBitBtn = ("TBitBtn");
         public string btnCidade = ("cidade");
         public string btnIdioma = ("idioma");
@@ -80,6 +82,8 @@ namespace VHFAutomation.PageObjects
 
         public string winEstada = ("Estada");
         public string winTipoUhEstadia = ("Tipo de UH Estadia");
+        public string winTipoUhTarifa = ("Tipo de UH Tarifa");
+        public string winTipoUhQuarto = ("Seleciona UH");
         public string winDadosPrincipais = ("Dados principais");
         public string winSelecCidade = ("Seleciona cidade");
         public string winIdiomaHosp = ("Idioma do Hóspede");
@@ -116,6 +120,7 @@ namespace VHFAutomation.PageObjects
 
         public string numNoites = ("3");
         public string categUhStnd = ("STND");
+        public string categUhSuite = ("SUITE MASTER");
         public string idiomaHosp = ("Portugues");
         public string tipoDocConfirmacao = ("EM");
 

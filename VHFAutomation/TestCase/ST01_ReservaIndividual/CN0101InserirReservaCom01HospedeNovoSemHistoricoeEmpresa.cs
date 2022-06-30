@@ -23,7 +23,7 @@ namespace VHFAutomation.TestCase
 
         }
 
-        AppObjects appObjectsVhf = new AppObjects();
+        AppObjects appObjects = new AppObjects();
 
         public void InserirReservaCom01HospedeNovoSemHistoricoeEmpresa()
         {
@@ -33,11 +33,11 @@ namespace VHFAutomation.TestCase
 
             funcComuns.ChamarAtalho("e");
 
-            funcComuns.AcessarSubMenu(appObjectsVhf.subMenuIndividual);
+            funcComuns.AcessarSubMenu(appObjects.subMenuIndividual);
 
             funcComuns.InserirNumNoites();
 
-            funcComuns.PreencherCamposUh();
+            funcComuns.PreencherCamposUh(appObjects.btnUhOcupado);
 
             funcComuns.InserirDadosHosp();
 
@@ -45,7 +45,7 @@ namespace VHFAutomation.TestCase
 
             funcComuns.InserirDocConfirmacao();
 
-            funcComuns.ValidarOrcamentoRes();
+            funcComuns.VisualizarOrcamentoRes();
 
             #endregion
         }
