@@ -15,6 +15,7 @@ namespace VHFAutomation.PageObjects
         public string userSysOracle = ("CM");
         public string passSysOracle = ("CMSOL123");
         public string empresaSysOracle = ("KHOTEL - BASE TESTE SUPORTE");
+        public string idHotel = ("1");
         
 
         #endregion
@@ -38,6 +39,8 @@ namespace VHFAutomation.PageObjects
         public string TBitBtn = ("TBitBtn");
         public string btnCidade = ("cidade");
         public string btnIdioma = ("idioma");
+        public string btnDocHosp = ("documentohospede");
+        public string btnContrato = ("contrato");
 
         #endregion
 
@@ -88,6 +91,10 @@ namespace VHFAutomation.PageObjects
         public string winSelecCidade = ("Seleciona cidade");
         public string winIdiomaHosp = ("Idioma do Hóspede");
         public string winDocConfirmacaoRes = ("Documento de Confirmação");
+        public string winSelecDocHosp = ("Seleciona documento do hóspede");
+        public string winSitReserva = ("Situação da Reserva");
+        public string winSelecCliente = ("Seleciona");
+        public string winContratoCliente = ("Contratos da Empresa");
 
         #endregion
 
@@ -111,6 +118,7 @@ namespace VHFAutomation.PageObjects
         public string titleTelaPrincTelefonia = ("Telefonia");
         public string titleTelaPrincipalTS = ("TimeSharing e Multipropriedade");
         public string txtVisualOrcamento = ("Clique para atualizar os valores do período");
+        public string txtCliente = ("Cliente");
 
         #endregion
 
@@ -122,7 +130,9 @@ namespace VHFAutomation.PageObjects
         public string categUhStnd = ("STND");
         public string categUhSuite = ("SUITE MASTER");
         public string idiomaHosp = ("Portugues");
-        public string tipoDocConfirmacao = ("EM");
+        public string docEmail = ("EM");
+        public string docCliente = ("77048338000148");
+        public string docHospEstada = ("88180094600");
 
         #endregion
     }

@@ -8,6 +8,9 @@ using OpenQA.Selenium;
 using VHFAutomation.PageObjects;
 using System.Diagnostics;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Appium.Windows;
+using OpenQA.Selenium.Appium;
 
 namespace VHFAutomation.CommonMethods
 {
@@ -20,6 +23,9 @@ namespace VHFAutomation.CommonMethods
 
         AppObjects appObjects = new AppObjects();
 
+        //public static WindowsDriver<WindowsElement> coNumRes;
+        public static AppiumWebElement numRes;
+
         public void ChamarAtalho(string tecla1)
         {
             Elementos.EncontraElementoClassName(acessarModulo, appObjects.scrTelaPrincipal).SendKeys(Keys.Alt + tecla1);
@@ -30,21 +36,10 @@ namespace VHFAutomation.CommonMethods
             Elementos.EncontraElementoAutomationId(acessarModulo, menu).Click();
         }
 
-        public void InserirNumNoites()
+        public void InserirNumNoites(string qtdNoites)
         {
-            /*
-            var anexResIndiv = acessarModulo.FindElementByClassName(appObjects.scrTelaReserva);
-            var anexEstd = anexResIndiv.FindElementByName(appObjects.winEstada);
-            var allEdits = anexEstd.FindElementsByTagName(appObjects.tagEdit);
-
-            Debug.WriteLine($"\nQtd de campos Edit da Estada: {allEdits.Count}");
-
-            var cNoites = allEdits.ElementAt(2);
-            new Actions(acessarModulo).MoveToElement(cNoites).DoubleClick().Perform();
-            cNoites.Clear();
-            cNoites.SendKeys(appObjects.numNoites);
-            */
-
+            /* --- Início da forma de codificar!
+             
             var anexEstd = acessarModulo.FindElementByName(appObjects.winEstada);
 
             var editNoites = anexEstd.FindElementsByClassName(appObjects.TEdit);
@@ -53,6 +48,10 @@ namespace VHFAutomation.CommonMethods
             new Actions(acessarModulo).MoveToElement(noitesEstd).DoubleClick().Perform();
             noitesEstd.Clear();
             noitesEstd.SendKeys(appObjects.numNoites);
+            */
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TEdit).ElementAt(9).SendKeys(qtdNoites);
+
         }
 
         public void InserirDatasEstada(string DataIni, string DataFim)
@@ -79,13 +78,13 @@ namespace VHFAutomation.CommonMethods
             if (botao == appObjects.btnUhOcupado)
             {
                 Elementos.EncontraElementoName(acessarModulo, appObjects.winTipoUhEstadia);
-                Elementos.EncontraElementoClassName(acessarModulo, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
+                Elementos.EncontraElementoClassName(acessarModulo, appObjects.TEdit).SendKeys(appObjects.categUhStnd);
                 Elementos.EncontraElementoName(acessarModulo, appObjects.btnConfirmar).Click();
             }
             else if (botao == appObjects.btnUhCobrado)
             {
                 Elementos.EncontraElementoName(acessarModulo, appObjects.winTipoUhTarifa);
-                Elementos.EncontraElementoClassName(acessarModulo, appObjects.TEdit).SendKeys(appObjects.categUhSuite);
+                Elementos.EncontraElementoClassName(acessarModulo, appObjects.TEdit).SendKeys(appObjects.categUhStnd);
                 Elementos.EncontraElementoName(acessarModulo, appObjects.btnConfirmar).Click();
             }
             else if (botao == appObjects.btnUhNumero)
@@ -102,15 +101,6 @@ namespace VHFAutomation.CommonMethods
             Elementos.EncontraElementosClassName(acessarModulo, appObjects.TBitBtn).ElementAt(46).Click();
 
             Elementos.EncontraElementoName(acessarModulo, appObjects.winDadosPrincipais);
-
-            //var allEditsHosp = acessarModulo.FindElementsByClassName("TEdit");
-
-            //FindElementsByTagName(appObjects.tagEdit);
-            //Debug.WriteLine($"\nQtd de campos Edit Dados do Hospede: {allEditsHosp.Count}");
-
-            //var dataNascHosp = acessarModulo.FindElementsByClassName("TCMDateTimePicker");
-
-            //var allLookupCombo = acessarModulo.FindElementsByClassName("TCMDBLookupCombo");
 
             var dadosHosp = GeradorDadosFakes.ListaDadosFakerPessoa();
 
@@ -137,11 +127,6 @@ namespace VHFAutomation.CommonMethods
             Elementos.EncontraElementoClassName(acessarModulo, appObjects.TEdit).SendKeys(appObjects.idiomaHosp);
 
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnConfirmar).Click();
-        }
-
-        public void ConfirmarInsercaoDadosHosp()
-        {
-            Elementos.EncontraElementoName(acessarModulo, appObjects.winDadosPrincipais);
 
             Elementos.EncontraElementosClassName(acessarModulo, appObjects.TBitBtn).ElementAt(46).Click();
         }
@@ -150,7 +135,7 @@ namespace VHFAutomation.CommonMethods
         {
             Elementos.EncontraElementoName(acessarModulo, appObjects.winDocConfirmacaoRes);
 
-            Elementos.EncontraElementoClassName(acessarModulo, appObjects.TEdit).SendKeys(appObjects.tipoDocConfirmacao);
+            Elementos.EncontraElementoClassName(acessarModulo, appObjects.TEdit).SendKeys(appObjects.docEmail);
 
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnConfirmar).Click();
 
@@ -168,8 +153,71 @@ namespace VHFAutomation.CommonMethods
 
         public void ValidarSituacaoRes()
         {
+            Debug.WriteLine($"*** Identificar janelas {acessarModulo.WindowHandles}");
+            
+            var winSitRes = acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.ElementAt(0));
+            winSitRes.Title.ToString();
 
+            var sitRes = acessarModulo.FindElementByName(appObjects.winSitReserva);
+
+            var editSitRes = sitRes.FindElementsByClassName(appObjects.TEdit);
+
+            numRes = editSitRes.ElementAt(8);
+            new Actions(acessarModulo).MoveToElement(numRes).DoubleClick().Perform();
+            numRes.SendKeys(Keys.Control + "c");
+            numRes.SendKeys(Keys.Control + "v");
+
+            Console.WriteLine("Numero de Reserva Gerado: " + numRes.Text);
         }
 
+        public void ValidarTelaPrincipalVhf()
+        {
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnSair).Click();
+
+            Elementos.EncontraElementoClassName(acessarModulo, appObjects.scrTelaPrincipal);
+        }
+
+        public void SelecionarEmpresa()
+        {
+            Elementos.EncontraElementoName(acessarModulo, appObjects.winDadosPrincipais);
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TBitBtn).ElementAt(44).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.winSelecCliente);
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TEdit).ElementAt(10).SendKeys(appObjects.docCliente);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnProcurar).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnConfirmar).Click();
+        }
+
+        public void SelecionarContrato()
+        {
+            Elementos.EncontraElementoName(acessarModulo, appObjects.winDadosPrincipais);
+
+            Elementos.EncontraElementosName(acessarModulo, appObjects.btnContrato).ElementAt(2).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.winContratoCliente);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnOK).Click();
+        }
+        
+        public void BuscarHospComHistoricoEstada()
+        {
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TBitBtn).ElementAt(46).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnDocHosp).Click();
+            Elementos.EncontraElementoName(acessarModulo, appObjects.winSelecDocHosp);
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TEdit).ElementAt(2).SendKeys(appObjects.docHospEstada);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnProcurar).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnConfirmar).Click();
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TBitBtn).ElementAt(46).Click();
+
+        }
     }
 }

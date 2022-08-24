@@ -15,17 +15,17 @@ using OpenQA.Selenium.Appium.Windows;
 namespace VHFAutomation.TestCase
 {
 
-    public class CN0101InserirReservaComUmHospedeNovoSemHistoricoeEmpresa : SessaoMain
+    public class CN0103InserirReservaComUmPaxComHistóricoDeHospedeEComEmpresaEContrato : SessaoMain
     {
         
-        public CN0101InserirReservaComUmHospedeNovoSemHistoricoeEmpresa()
+        public CN0103InserirReservaComUmPaxComHistóricoDeHospedeEComEmpresaEContrato()
         {
 
         }
 
         AppObjects appObjects = new AppObjects();
 
-        public void InserirReservaComUmHospedeNovoSemHistoricoeEmpresa()
+        public void CN0103InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato()
         {
             #region Inserção de uma reserva individual com um hóspede sem histórico estada
 
@@ -40,7 +40,11 @@ namespace VHFAutomation.TestCase
 
             funcComuns.PreencherCamposUh(appObjects.btnUhOcupado);
 
-            funcComuns.InserirDadosHosp();
+            funcComuns.SelecionarEmpresa();
+
+            funcComuns.SelecionarContrato();
+
+            funcComuns.BuscarHospComHistoricoEstada();
 
             funcComuns.InserirDocConfirmacao();
 
@@ -50,7 +54,7 @@ namespace VHFAutomation.TestCase
 
             realizaConsultas.SelectValidarReservaGerada();
 
-            realizaConsultas.SelectValidarNumeroLinhasOrcamento(3);
+            realizaConsultas.SelectValidarNumeroLinhasOrcamento(6);
 
             //realizaConsultas.ValidarFnrhMovimentoHospede();
 
@@ -59,7 +63,7 @@ namespace VHFAutomation.TestCase
             #endregion
         }
 
-        public void CN0101TearDown()
+        public void CN0103TearDown()
         {
             if (acessarModulo != null)
             {

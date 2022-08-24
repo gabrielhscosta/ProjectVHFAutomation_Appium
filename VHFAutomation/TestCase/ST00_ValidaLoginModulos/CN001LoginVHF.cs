@@ -44,9 +44,8 @@ namespace VHFAutomation.TestCase
             #region Usuário e Pass Sistema
             
             WebDriverWait waitLogin = new WebDriverWait(acessarModulo, TimeSpan.FromSeconds(60));
-
             
-            Debug.WriteLine($"*** Identificador da janela: {acessarModulo.WindowHandles}");
+            Debug.WriteLine($"*** Identificar janelas: {acessarModulo.WindowHandles}");
 
             var anexLogin = acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.ElementAt(0));
             anexLogin.Title.ToString();

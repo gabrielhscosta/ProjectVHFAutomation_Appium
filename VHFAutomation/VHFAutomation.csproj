@@ -78,11 +78,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonMethods\ConexaoBD.cs" />
     <Compile Include="CommonMethods\FuncComuns.cs" />
     <Compile Include="CommonMethods\GeradorDadosFakes.cs" />
     <Compile Include="CommonMethods\MapElementos.cs" />
     <Compile Include="CommonMethods\PessoaFake.cs" />
+    <Compile Include="CommonMethods\RealizaConsultas.cs" />
     <Compile Include="CommonMethods\RegistroBase.cs" />
+    <Compile Include="CommonMethods\Validacoes.cs" />
     <Compile Include="Main\SessaoMain.cs" />
     <Compile Include="PageObjects\AppObjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +99,7 @@
     <Compile Include="TestCase\ST00_ValidaLoginModulos\CN003LoginCentralReservas.cs" />
     <Compile Include="TestCase\ST00_ValidaLoginModulos\CN002LoginVHFCaixa.cs" />
     <Compile Include="TestCase\ST00_ValidaLoginModulos\CN001LoginVHF.cs" />
+    <Compile Include="TestCase\ST01_ReservaIndividual\CN0103InserirReservaComUmPaxComHistóricoDeHospedeEComEmpresaEContrato.cs" />
     <Compile Include="TestCase\ST01_ReservaIndividual\CN0101InserirReservaCom01HospedeNovoSemHistoricoeEmpresa.cs" />
   </ItemGroup>
   <ItemGroup>

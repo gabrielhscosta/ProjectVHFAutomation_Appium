@@ -193,29 +193,47 @@ namespace VHFAutomation.Main
 
         #region ST01_Reserva Individual
         
-        #region Inserir uma reserva com 01 Hospede novo sem histórico/empresa (Validar FRNH)
+        #region Inserir uma reserva com um hóspede novo sem histórico/empresa (Validar orçamento)
         [TestMethod, TestCategory("ST01 - Reserva Individual")]
         public void CN0101_ReservaIndividual()
         {
             try
             {
-                CN0101InserirReservaCom01HospedeNovoSemHistoricoeEmpresa cn0101 = new CN0101InserirReservaCom01HospedeNovoSemHistoricoeEmpresa();
-                cn0101.InserirReservaCom01HospedeNovoSemHistoricoeEmpresa();
+                CN0101InserirReservaComUmHospedeNovoSemHistoricoeEmpresa cn0101 = new CN0101InserirReservaComUmHospedeNovoSemHistoricoeEmpresa();
+                cn0101.InserirReservaComUmHospedeNovoSemHistoricoeEmpresa();
             }
             catch
             {
 
                 CN001LoginVHF vloginvhf = new CN001LoginVHF();
                 vloginvhf.ValidaLoginVHF();
-                CN0101InserirReservaCom01HospedeNovoSemHistoricoeEmpresa cn0101 = new CN0101InserirReservaCom01HospedeNovoSemHistoricoeEmpresa();
-                cn0101.InserirReservaCom01HospedeNovoSemHistoricoeEmpresa();
+                CN0101InserirReservaComUmHospedeNovoSemHistoricoeEmpresa cn0101 = new CN0101InserirReservaComUmHospedeNovoSemHistoricoeEmpresa();
+                cn0101.InserirReservaComUmHospedeNovoSemHistoricoeEmpresa();
             }
         }
 
         #endregion
 
+        #region Inserir reserva com um pax com histórico de hóspede e com cliente/empresa e contrato (Validar orçamento)
+        [TestMethod, TestCategory("ST01 - Reserva Individual")]
+        public void CN0103_ReservaIndividual()
+        {
+            try
+            {
+                CN0103InserirReservaComUmPaxComHistóricoDeHospedeEComEmpresaEContrato cn0103 = new CN0103InserirReservaComUmPaxComHistóricoDeHospedeEComEmpresaEContrato();
+                cn0103.CN0103InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato();
+            }
+            catch
+            {
 
+                CN001LoginVHF vloginvhf = new CN001LoginVHF();
+                vloginvhf.ValidaLoginVHF();
+                CN0103InserirReservaComUmPaxComHistóricoDeHospedeEComEmpresaEContrato cn0103 = new CN0103InserirReservaComUmPaxComHistóricoDeHospedeEComEmpresaEContrato();
+                cn0103.CN0103InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato();
+            }
+        }
 
+        #endregion
 
         #endregion
     }
