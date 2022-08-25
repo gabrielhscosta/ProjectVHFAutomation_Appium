@@ -9,8 +9,8 @@ using YamlDotNet.Serialization.NamingConventions;
 
 namespace VHF.DadosYaml
 {
-    public class ImportaYaml 
-    {    
+    public class ImportaYaml
+    {
         public static DeserializedObject Deserialize(string nomeArquivo)
         {
             StreamReader arquivo = new StreamReader(nomeArquivo);
