@@ -31,6 +31,7 @@ namespace VHFAutomation.TestCase
 
             FuncComuns funcComuns = new FuncComuns();
             RealizaConsultas realizaConsultas = new RealizaConsultas();
+            Validacoes validacoes = new Validacoes();
 
             funcComuns.ChamarAtalho("e");
 
@@ -57,6 +58,8 @@ namespace VHFAutomation.TestCase
             realizaConsultas.SelectValidarNumeroLinhasOrcamento(6);
 
             //realizaConsultas.ValidarFnrhMovimentoHospede();
+
+            validacoes.ValidaOrcamento("stnd", 1);
 
             funcComuns.ValidarTelaPrincipalVhf();
 

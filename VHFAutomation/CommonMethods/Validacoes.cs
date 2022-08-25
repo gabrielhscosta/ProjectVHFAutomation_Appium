@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VHF.DadosYaml;
+using static VHFAutomation.CommonMethods.RealizaConsultas;
 
 namespace VHFAutomation.CommonMethods
 {
