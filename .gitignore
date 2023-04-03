@@ -1,0 +1,11 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+.vs/
+packages/
+VHFAutomation/bin/
+VHFAutomation/obj/
+VHFAutomation/packages.config
+VHFAutomation/VHF.csproj
