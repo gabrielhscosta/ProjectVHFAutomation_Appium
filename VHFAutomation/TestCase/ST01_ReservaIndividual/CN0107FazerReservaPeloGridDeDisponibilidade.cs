@@ -15,58 +15,47 @@ using OpenQA.Selenium.Appium.Windows;
 namespace VHFAutomation.TestCase
 {
 
-    public class CN0103InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato : SessaoMain
+    public class CN0107FazerReservaPeloGridDeDisponibilidade : SessaoMain
     {
         
-        public CN0103InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato()
+        public CN0107FazerReservaPeloGridDeDisponibilidade()
         {
 
         }
 
         AppObjects appObjects = new AppObjects();
 
-        public void InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato()
+        public void FazerReservaPeloGridDeDisponibilidade()
         {
             #region Inserção de uma reserva individual com um hóspede sem histórico estada
 
             FuncComuns funcComuns = new FuncComuns();
             RealizaConsultas realizaConsultas = new RealizaConsultas();
-            Validacoes validacoes = new Validacoes();
 
-            funcComuns.ChamarAtalho("e", "");
+            funcComuns.ChamarAtalho("c", "t");
 
-            funcComuns.AcessarSubMenu(appObjects.subMenuIndividual);
+            funcComuns.AcessarSubMenu(appObjects.subMenuGridDisponibilidade);
 
-            funcComuns.InserirNumNoites("6");
+            funcComuns.InserirResGridDispo();
 
-            funcComuns.PreencherCamposUh(appObjects.btnUhOcupado);
+            funcComuns.InserirDadosHospDaReservaPeloGrid();
 
-            funcComuns.SelecionarEmpresa();
-
-            funcComuns.SelecionarContrato();
-
-            funcComuns.BuscarHospComHistoricoEstada();
-
-            funcComuns.InserirDocConfirmacao();
-
-            funcComuns.VisualizarOrcamentoRes();
+            funcComuns.InserirDocConfirmacaoDaReservaPeloGrid();
 
             funcComuns.ValidarSituacaoRes();
 
             realizaConsultas.SelectValidarReservaGerada();
 
-            realizaConsultas.SelectValidarNumeroLinhasOrcamento(6);
+            realizaConsultas.SelectValidarNumeroLinhasOrcamento(5);
 
-            //realizaConsultas.ValidarFnrhMovimentoHospede();
-
-            validacoes.ValidaOrcamento1("stnd", 1,0,0, "AUTO NET 2022-60");
+            funcComuns.ValidarTelaPrincipalVhf();
 
             funcComuns.ValidarTelaPrincipalVhf();
 
             #endregion
         }
 
-        public void CN0103TearDown()
+        public void CN0107TearDown()
         {
             if (acessarModulo != null)
             {

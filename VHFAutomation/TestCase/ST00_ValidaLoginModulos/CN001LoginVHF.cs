@@ -28,6 +28,8 @@ namespace VHFAutomation.TestCase
         public void ValidaLoginVHF()
         {
             #region Inicialização do módulo VHF
+
+            /*
             if (acessarModulo == null)
             {
                 AppiumOptions session1 = new AppiumOptions();
@@ -36,6 +38,7 @@ namespace VHFAutomation.TestCase
                 acessarModulo = new WindowsDriver<WindowsElement>(new Uri(winAppDriverUrl), session1);
 
             }
+            */
 
             ParamRegistroSistema();
 
@@ -75,14 +78,14 @@ namespace VHFAutomation.TestCase
 
             #endregion
 
-
+            
             #region Janela Atenção
 
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.txtAlertAtencao);
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnOK).Click();
 
             #endregion
-
+            
         }
 
         public void ConferenciaTelaPrincipalVHF() 

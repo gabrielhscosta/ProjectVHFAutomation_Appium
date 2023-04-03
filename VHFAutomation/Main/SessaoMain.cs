@@ -46,6 +46,20 @@ namespace VHFAutomation.Main
         {
             RegistraBaseHomologacaoVhf("QA_FRONT", "MSSQL", "RJOSRVDBODEV001");
             RegistraBaseHomologacaoVhfCaixa("QA_FRONT", "MSSQL", "RJOSRVDBODEV001");
+
+
+
+            // *** Inicialização do módulo ***
+
+            if (acessarModulo == null)
+            {
+                AppiumOptions session1 = new AppiumOptions();
+                session1.AddAdditionalCapability("app", dirAplicacaoVHF);
+
+                acessarModulo = new WindowsDriver<WindowsElement>(new Uri(winAppDriverUrl), session1);
+
+            }
+
         }
 
         [ClassCleanup]
@@ -207,8 +221,30 @@ namespace VHFAutomation.Main
 
                 CN001LoginVHF vloginvhf = new CN001LoginVHF();
                 vloginvhf.ValidaLoginVHF();
+                vloginvhf.ConferenciaTelaPrincipalVHF();
                 CN0101InserirReservaComUmHospedeNovoSemHistoricoeEmpresa cn0101 = new CN0101InserirReservaComUmHospedeNovoSemHistoricoeEmpresa();
                 cn0101.InserirReservaComUmHospedeNovoSemHistoricoeEmpresa();
+            }
+        }
+
+        #endregion
+
+        #region Inserir uma reserva com um hóspede novo sem histórico e sem empresa (Validar FNRH)
+        [TestMethod, TestCategory("ST01 - Reserva Individual")]
+        public void CN0102_ReservaIndividual()
+        {
+            try
+            {
+                CN0102InserirReservaComUmHospedeNovoEComEmpresaSemContrato cn0102 = new CN0102InserirReservaComUmHospedeNovoEComEmpresaSemContrato();
+                cn0102.InserirReservaComUmHospedeNovoEComEmpresaSemContrato();
+            }
+            catch
+            {
+
+                CN001LoginVHF vloginvhf = new CN001LoginVHF();
+                vloginvhf.ValidaLoginVHF();
+                CN0102InserirReservaComUmHospedeNovoEComEmpresaSemContrato cn0102 = new CN0102InserirReservaComUmHospedeNovoEComEmpresaSemContrato();
+                cn0102.InserirReservaComUmHospedeNovoEComEmpresaSemContrato();
             }
         }
 
@@ -220,17 +256,55 @@ namespace VHFAutomation.Main
         {
             try
             {
-                CN0103InserirReservaComUmPaxComHistóricoDeHospedeEComEmpresaEContrato cn0103 = new CN0103InserirReservaComUmPaxComHistóricoDeHospedeEComEmpresaEContrato();
-                cn0103.CN0103InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato();
+                CN0103InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato cn0103 = new CN0103InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato();
+                cn0103.InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato();
             }
             catch
             {
 
                 CN001LoginVHF vloginvhf = new CN001LoginVHF();
                 vloginvhf.ValidaLoginVHF();
-                CN0103InserirReservaComUmPaxComHistóricoDeHospedeEComEmpresaEContrato cn0103 = new CN0103InserirReservaComUmPaxComHistóricoDeHospedeEComEmpresaEContrato();
-                cn0103.CN0103InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato();
+                CN0103InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato cn0103 = new CN0103InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato();
+                cn0103.InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato();
             }
+        }
+
+        #endregion
+
+        #region Fazer Reserva pelo Grid de Disponibilidade
+        [TestMethod, TestCategory("ST01 - Reserva Individual")]
+        public void CN0107_ReservaIndividual()
+        {
+            try
+            {
+                CN0107FazerReservaPeloGridDeDisponibilidade cn0107 = new CN0107FazerReservaPeloGridDeDisponibilidade();
+                cn0107.FazerReservaPeloGridDeDisponibilidade();
+            }
+            catch
+            {
+
+                CN001LoginVHF vloginvhf = new CN001LoginVHF();
+                vloginvhf.ValidaLoginVHF();
+                CN0107FazerReservaPeloGridDeDisponibilidade cn0107 = new CN0107FazerReservaPeloGridDeDisponibilidade();
+                cn0107.FazerReservaPeloGridDeDisponibilidade();
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+
+        #region ST03_Reserva De Grupo
+
+        #region Validar anexo na reserva de grupo
+        [TestMethod, TestCategory("ST03 - Reserva De Grupo")]
+        public void CN0302_ValidarAnexoNaReservaDeGrupo()
+        {
+            CN001LoginVHF vloginvhf = new CN001LoginVHF();
+            vloginvhf.ValidaLoginVHF();
+            CN0302ValidarAnexoNaReservaDeGrupo cn0302 = new CN0302ValidarAnexoNaReservaDeGrupo();
+            cn0302.ValidarAnexoNaReservaDeGrupo();
         }
 
         #endregion

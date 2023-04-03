@@ -15,17 +15,17 @@ using OpenQA.Selenium.Appium.Windows;
 namespace VHFAutomation.TestCase
 {
 
-    public class CN0103InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato : SessaoMain
+    public class CN0102InserirReservaComUmHospedeNovoEComEmpresaSemContrato : SessaoMain
     {
         
-        public CN0103InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato()
+        public CN0102InserirReservaComUmHospedeNovoEComEmpresaSemContrato()
         {
 
         }
 
         AppObjects appObjects = new AppObjects();
 
-        public void InserirReservaComUmPaxComHistoricoDeHospedeEComEmpresaEContrato()
+        public void InserirReservaComUmHospedeNovoEComEmpresaSemContrato()
         {
             #region Inserção de uma reserva individual com um hóspede sem histórico estada
 
@@ -43,9 +43,7 @@ namespace VHFAutomation.TestCase
 
             funcComuns.SelecionarEmpresa();
 
-            funcComuns.SelecionarContrato();
-
-            funcComuns.BuscarHospComHistoricoEstada();
+            funcComuns.InserirDadosHosp();
 
             funcComuns.InserirDocConfirmacao();
 
@@ -59,14 +57,14 @@ namespace VHFAutomation.TestCase
 
             //realizaConsultas.ValidarFnrhMovimentoHospede();
 
-            validacoes.ValidaOrcamento1("stnd", 1,0,0, "AUTO NET 2022-60");
+            validacoes.ValidaOrcamento1("stnd", 1,0,0);
 
             funcComuns.ValidarTelaPrincipalVhf();
 
             #endregion
         }
 
-        public void CN0103TearDown()
+        public void CN0102TearDown()
         {
             if (acessarModulo != null)
             {

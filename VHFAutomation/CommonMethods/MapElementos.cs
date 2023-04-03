@@ -25,7 +25,7 @@ namespace VHFAutomation.CommonMethods
                 {
                     acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.First());
                     System.Threading.Thread.Sleep(500);
-                    uiTarget = acessarModulo.FindElementByName(Identificador);
+                    uiTarget = acessarModulo.FindElementByTagName(Identificador);
                 }
                 catch
                 {

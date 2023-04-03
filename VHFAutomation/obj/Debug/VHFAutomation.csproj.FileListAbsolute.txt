@@ -109,7 +109,6 @@ C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\pt-BR\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\pt-BR\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
-C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\VHFAutomation.dll.config
@@ -129,7 +128,6 @@ C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\Castle.Core.xml
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\Newtonsoft.Json.xml
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\WebDriver.xml
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\WebDriver.Support.xml
@@ -138,3 +136,18 @@ C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\obj\Debug\VHFAutomation.csproj.CopyComplete
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\obj\Debug\VHFAutomation.dll
 C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\obj\Debug\VHFAutomation.pdb
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\YamlDotNet.dll
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\YamlDotNet.xml
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\StringExtensionLibrary.dll
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\de\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\it\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\gabriel.dacosta\Source\Repos\gabrielhscosta\ProjectVHFAutomation_Appium\VHFAutomation\bin\Debug\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
