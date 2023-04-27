@@ -1,3 +1,7 @@
+/.vs
 .vs/
 packages/
 TestResults/
+VHFAutomation/bin/
+VHFAutomation/obj/
+VHFAutomation/packages.config
