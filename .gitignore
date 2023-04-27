@@ -4,3 +4,12 @@
 
 /.vs/VHFAutomation
 /.vs
+.vs/
+packages/
+VHFAutomation/bin/
+VHFAutomation/obj/
+VHFAutomation/packages.config
+VHFAutomation/VHF.csproj
+/VHFAutomation/bin/Debug/pt-BR/Microsoft.TestPlatform.AdapterUtilities.resources.dll
+/VHFAutomation/bin/Debug/Appium.Net.dll
+/VHFAutomation/obj/Debug/VHFAutomation.csproj.CoreCompileInputs.cache

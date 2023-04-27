@@ -63,6 +63,7 @@ namespace VHFAutomation.PageObjects
 
         #region Menus
         public string subMenuIndividual = ("161");
+        public string subMenuGridDisponibilidade = ("449");
 
         #endregion
 
@@ -95,6 +96,7 @@ namespace VHFAutomation.PageObjects
         public string winSitReserva = ("Situação da Reserva");
         public string winSelecCliente = ("Seleciona");
         public string winContratoCliente = ("Contratos da Empresa");
+        public string winContatosCliente = ("Contatos");
 
         #endregion
 
@@ -135,5 +137,18 @@ namespace VHFAutomation.PageObjects
         public string docHospEstada = ("88180094600");
 
         #endregion
+
+        #region Tags
+
+        public string tagMenuItem = ("MenuItem");
+
+        #endregion
+
+        #region Diretorios
+
+        //public string direcAnexo = "C:]Users]gabriel.dacosta]Source]Repos]QA-VHF]VHF]DocAnexo]logo_totvs.jpg";
+
+        #endregion
+
     }
 }

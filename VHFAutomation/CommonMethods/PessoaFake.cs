@@ -18,4 +18,14 @@ namespace VHFAutomation.CommonMethods
         public string CEPFaker { get; set; }
         public string CidadeFaker { get; set; }
     }
+
+    public class EmpresaFake
+    {
+        public string CNPJFaker { get; set; }
+        public string PrefixoCompany { get; set; }
+        public string NomeCompany { get; set; }
+        public string EmailFaker { get; set; }
+        public string CidadeFaker { get; set; }
+        public string TelefoneFaker { get; set; }
+    }
 }
