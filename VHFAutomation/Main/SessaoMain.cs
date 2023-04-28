@@ -77,6 +77,7 @@ namespace VHFAutomation.Main
         #endregion
 
 
+
         #region ST00_ValidaLoginModulos
 
 
@@ -294,6 +295,7 @@ namespace VHFAutomation.Main
 
         #endregion
 
+        
 
         #region ST03_Reserva De Grupo
 
@@ -305,6 +307,24 @@ namespace VHFAutomation.Main
             vloginvhf.ValidaLoginVHF();
             CN0302ValidarAnexoNaReservaDeGrupo cn0302 = new CN0302ValidarAnexoNaReservaDeGrupo();
             cn0302.ValidarAnexoNaReservaDeGrupo();
+        }
+
+        #endregion
+
+        #endregion
+
+
+
+        #region ST01EXTRA_Cancelamento de Reserva Individual
+
+        #region Cancelamento de reserva Individual
+        [TestMethod, TestCategory("STEXTRA_Cancelamento de Reserva Individual")]
+        public void CN01EXTRA_CancelarReservaIndividual()
+        {
+            CN001LoginVHF vloginvhf = new CN001LoginVHF();
+            vloginvhf.ValidaLoginVHF();
+            CN_CancelarReservaIndividual cnExtra01 = new CN_CancelarReservaIndividual();
+            cnExtra01.CancelarReservaIndividual();
         }
 
         #endregion

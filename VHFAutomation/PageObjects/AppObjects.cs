@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,7 @@ namespace VHFAutomation.PageObjects
         public string btnIdioma = ("idioma");
         public string btnDocHosp = ("documentohospede");
         public string btnContrato = ("contrato");
+        public string btnContinuar = ("Continuar");
 
         #endregion
 
@@ -56,6 +58,7 @@ namespace VHFAutomation.PageObjects
         public string abrirCombo = ("TBtnWinControl");
         public string comboBoxAgenciaTS = ("TCMDBLookupCombo");
         public string comboBoxGridTs = ("TwwPopupGrid");
+        public string TComboBox = ("TComboBox");
 
         #endregion
 
@@ -77,6 +80,7 @@ namespace VHFAutomation.PageObjects
         public string scrMontaSelect = ("TfrmMontaSelect");
         public string scrTelaReserva = ("TfrmReserva");
         public string scrTelaCartaoConsCaixa = ("TfrmCartaoConsumo");
+        public string scrTMessageForm = ("TMessageForm");
 
         #endregion
 
@@ -97,6 +101,7 @@ namespace VHFAutomation.PageObjects
         public string winSelecCliente = ("Seleciona");
         public string winContratoCliente = ("Contratos da Empresa");
         public string winContatosCliente = ("Contatos");
+        public string winCancelamentoRes = ("Cancelamento de Reservas");
 
         #endregion
 
@@ -121,6 +126,7 @@ namespace VHFAutomation.PageObjects
         public string titleTelaPrincipalTS = ("TimeSharing e Multipropriedade");
         public string txtVisualOrcamento = ("Clique para atualizar os valores do período");
         public string txtCliente = ("Cliente");
+        public string txtAlertLicenca = ("Registro de Versões");
 
         #endregion
 
@@ -135,14 +141,20 @@ namespace VHFAutomation.PageObjects
         public string docEmail = ("EM");
         public string docCliente = ("77048338000148");
         public string docHospEstada = ("88180094600");
+        public string statusResConfirmada = ("Confirmada");
+        public string motivoCancRes = ("Cancelamento CMNet");
 
         #endregion
+
+
 
         #region Tags
 
         public string tagMenuItem = ("MenuItem");
 
         #endregion
+
+
 
         #region Diretorios
 

@@ -471,5 +471,54 @@ namespace VHFAutomation.CommonMethods
 
         }
 
+        public void AbrirTelaConsultaGeral()
+        {
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TBitBtn).ElementAt(6).Click();
+        }
+
+        public void SelecionarStatusResConfirmadaConsultaGeral()
+        {
+            var cGeral = acessarModulo.FindElementByName("Consulta Geral");
+            
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TComboBox).ElementAt(1).SendKeys(appObjects.statusResConfirmada);
+
+            cGeral.SendKeys(Keys.Tab);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnProcurar).Click();
+        }
+
+        public void CancelamentoReservaIndividual()
+        {
+            var cGeral = acessarModulo.FindElementByName("Consulta Geral");
+
+            new Actions(acessarModulo).MoveToElement(cGeral, 1080, 148).Click().Perform();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnCancelar).Click();
+
+            Elementos.EncontraElementoClassName(acessarModulo, appObjects.scrTMessageForm);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnSim).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.winCancelamentoRes);
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TCMDBLookupCombo).ElementAt(0).SendKeys(appObjects.motivoCancRes);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnConfirmar).Click();
+
+            Elementos.EncontraElementoClassName(acessarModulo, appObjects.scrTMessageForm);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnOK).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnNao).Click();
+        }
+
+        public void LoopingCancelamentoReservas()
+        {
+            for(int i = 0; i < 5; i++)
+            {
+                CancelamentoReservaIndividual();
+                Console.WriteLine("Reserva individual cancelada com sucesso");
+            }
+        }
     }
 }

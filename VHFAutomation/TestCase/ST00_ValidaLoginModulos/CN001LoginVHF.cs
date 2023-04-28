@@ -45,16 +45,17 @@ namespace VHFAutomation.TestCase
             #endregion
 
             #region Usuário e Pass Sistema
-            
-            WebDriverWait waitLogin = new WebDriverWait(acessarModulo, TimeSpan.FromSeconds(60));
-            
+
+            //WebDriverWait waitLogin = new WebDriverWait(acessarModulo, TimeSpan.FromSeconds(1000));
+
+            Thread.Sleep(1000);
+
             Debug.WriteLine($"*** Identificar janelas: {acessarModulo.WindowHandles}");
 
             var anexLogin = acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.ElementAt(0));
             anexLogin.Title.ToString();
             anexLogin.Manage().Window.Equals(appObjectsVhf.titleTelaLogin);
             
-
             //Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.titleTelaLogin);
 
             Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TEdit).ElementAt(0).SendKeys(appObjectsVhf.userSys);
@@ -64,9 +65,11 @@ namespace VHFAutomation.TestCase
 
             #endregion
 
-            
+
 
             #region Seleciona Empresa
+
+            Thread.Sleep(1000);
 
             Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhf.comboBoxLogin);
 
@@ -78,7 +81,19 @@ namespace VHFAutomation.TestCase
 
             #endregion
 
-            
+
+
+            #region Janela Registro de versão
+
+            Thread.Sleep(5000);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.txtAlertLicenca);
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnContinuar).Click();
+
+            #endregion
+
+
+
             #region Janela Atenção
 
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.txtAlertAtencao);

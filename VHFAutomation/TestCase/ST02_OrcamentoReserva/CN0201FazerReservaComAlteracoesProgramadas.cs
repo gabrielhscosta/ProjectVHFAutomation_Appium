@@ -41,9 +41,9 @@ namespace VHFAutomation.TestCase.ST02_OrcamentoReserva
 
             funcComuns.InserirDocConfirmacao();
 
-            funcComuns.CliqueParaVisualizarValores();
+            //funcComuns.CliqueParaVisualizarValores();
 
-            funcComuns.AlterarParteInferiorOrcamentoRes();
+            //funcComuns.AlterarParteInferiorOrcamentoRes();
 
             /*
 

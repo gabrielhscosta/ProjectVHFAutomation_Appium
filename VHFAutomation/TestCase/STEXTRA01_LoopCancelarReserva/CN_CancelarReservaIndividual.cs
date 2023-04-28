@@ -35,7 +35,7 @@ namespace VHFAutomation.TestCase
             funcComuns.SelecionarStatusResConfirmadaConsultaGeral();
 
             funcComuns.LoopingCancelamentoReservas();
-            
+
             funcComuns.ValidarTelaPrincipalVhf();
         }
     }
