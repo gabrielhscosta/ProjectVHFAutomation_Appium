@@ -102,7 +102,9 @@ namespace VHFAutomation.PageObjects
         public string winContratoCliente = ("Contratos da Empresa");
         public string winContatosCliente = ("Contatos");
         public string winCancelamentoRes = ("Cancelamento de Reservas");
+        public string winCancelamentoResGrupo = ("Cancelamento de Reserva de Grupo");
         public string winConsultaGeral = ("Consulta Geral");
+        public string winCancelarResGrupo = ("Cancelar Reserva de Grupo");
 
         #endregion
 

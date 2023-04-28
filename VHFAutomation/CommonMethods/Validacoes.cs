@@ -78,5 +78,11 @@ namespace VHFAutomation.CommonMethods
 
         }
 
+        public void ValidaStatusReservaGrp(int status)
+        {
+            int statusResGrp = realizaConsultas.SelectValidarStatusResGrupo(status);
+            Assert.AreEqual(status, statusResGrp);
+        }
+
     }
 }

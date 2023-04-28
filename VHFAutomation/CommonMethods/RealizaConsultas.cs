@@ -203,7 +203,43 @@ namespace VHFAutomation.CommonMethods
 
             return lista;
         }
-    
+
+        public int SelectValidarStatusResGrupo(int status)
+        {
+            SqlCommand cmd = new SqlCommand();
+
+            int statusResGrp = 0;
+
+            cmd.CommandText = "select STATUSRESERVA" +
+                " from RESERVAGRUPO " +
+                " where IdReservaGrupo = " + FuncComuns.numResGrp.Text +
+                " and idhotel = 1";
+
+            try
+            {
+                cmd.Connection = conexaoBd.conectar();
+                statusResGrp = (int)(cmd.ExecuteScalar());
+                conexaoBd.desconectar();
+            }
+
+            catch (SqlException ex)
+            {
+                ex.Message.ToString();
+            }
+
+            if (statusResGrp == status)
+            {
+                Console.WriteLine("\nStatus da reserva é Cancelada.");
+            }
+
+            else
+            {
+                throw new AccessViolationException("\nErro na formação do Orçamento Reserva.");
+            }
+
+            return statusResGrp;
+        }
+
         public class TarifaConsulta
         {
             public string Descricao { get; set; }

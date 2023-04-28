@@ -28,13 +28,15 @@ namespace VHFAutomation.TestCase
         public void CancelarReservaGrupo()
         {
             FuncComuns funcComuns = new FuncComuns();
-            RealizaConsultas realizaConsultas = new RealizaConsultas();
+            Validacoes validacoes = new Validacoes();
 
-            funcComuns.AbrirTelaConsultaGeral();
+            funcComuns.ChamarAtalho("e", "g", "n");
 
-            funcComuns.SelecionarStatusResConfirmadaConsultaGeral();
+            funcComuns.CancelarReservaGrupo();
 
-            funcComuns.LoopingCancelamentoReservas();
+            funcComuns.LoopingCancelamentoReservasGrupo();
+
+            funcComuns.SairTela();
 
             funcComuns.ValidarTelaPrincipalVhf();
         }
