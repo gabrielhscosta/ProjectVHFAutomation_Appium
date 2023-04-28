@@ -523,13 +523,13 @@ namespace VHFAutomation.CommonMethods
             }
         }
 
-        public void CancelarReservaGrupo()
+        public void PrimeiraEtapaCancelarReservaGrupo()
         {
             acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.First());
 
-            var altResGrp = acessarModulo.FindElementByName(appObjects.winCancelarResGrupo);
+            var cancResGrp = acessarModulo.FindElementByName(appObjects.winCancelarResGrupo);
 
-            altResGrp.FindElementsByClassName(appObjects.TBitBtn).ElementAt(0).Click();
+            cancResGrp.FindElementsByClassName(appObjects.TBitBtn).ElementAt(0).Click();
 
             acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.First());
 
@@ -555,12 +555,44 @@ namespace VHFAutomation.CommonMethods
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnConfirmar).Click();
         }
 
+        public void CancelarReservaGrupo()
+        {
+            acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.First());
+
+            var cancResGrp = acessarModulo.FindElementByName(appObjects.winCancelarResGrupo);
+
+            cancResGrp.FindElementsByClassName(appObjects.TBitBtn).ElementAt(0).Click();
+
+            acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.First());
+
+            var winSelec = acessarModulo.FindElementByClassName(appObjects.scrMontaSelect);
+
+            //Clica na primeira linha da lista de reserva grupo
+            new Actions(acessarModulo).MoveToElement(winSelec, 344, 128).Click().Perform();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnConfirmar).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnConfirmar).Click();
+
+            Elementos.EncontraElementoClassName(acessarModulo, appObjects.scrTMessageForm);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnSim).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.winCancelamentoResGrupo);
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TCMDBLookupCombo).ElementAt(0).SendKeys(appObjects.motivoCancRes);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnConfirmar).Click();
+        }
+
         public void LoopingCancelamentoReservasGrupo()
         {
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 5; i++)
             {
+                CancelarReservaGrupo();
                 ValidarSituacaoResGrupo();
                 validacoes.ValidaStatusReservaGrp(6);
+                SairTela();
                 Console.WriteLine("Reserva de grupo cancelada com sucesso");
             }
         }

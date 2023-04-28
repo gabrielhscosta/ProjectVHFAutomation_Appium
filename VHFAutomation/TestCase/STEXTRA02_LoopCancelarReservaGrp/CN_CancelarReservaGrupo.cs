@@ -32,11 +32,15 @@ namespace VHFAutomation.TestCase
 
             funcComuns.ChamarAtalho("e", "g", "n");
 
-            funcComuns.CancelarReservaGrupo();
+            funcComuns.PrimeiraEtapaCancelarReservaGrupo();
 
-            funcComuns.LoopingCancelamentoReservasGrupo();
+            funcComuns.ValidarSituacaoResGrupo();
+
+            validacoes.ValidaStatusReservaGrp(6);
 
             funcComuns.SairTela();
+
+            funcComuns.LoopingCancelamentoReservasGrupo();
 
             funcComuns.ValidarTelaPrincipalVhf();
         }
