@@ -478,7 +478,7 @@ namespace VHFAutomation.CommonMethods
 
         public void SelecionarStatusResConfirmadaConsultaGeral()
         {
-            var cGeral = acessarModulo.FindElementByName("Consulta Geral");
+            var cGeral = acessarModulo.FindElementByName(appObjects.winConsultaGeral);
             
             Elementos.EncontraElementosClassName(acessarModulo, appObjects.TComboBox).ElementAt(1).SendKeys(appObjects.statusResConfirmada);
 
@@ -489,7 +489,7 @@ namespace VHFAutomation.CommonMethods
 
         public void CancelamentoReservaIndividual()
         {
-            var cGeral = acessarModulo.FindElementByName("Consulta Geral");
+            var cGeral = acessarModulo.FindElementByName(appObjects.winConsultaGeral);
 
             new Actions(acessarModulo).MoveToElement(cGeral, 1080, 148).Click().Perform();
 
