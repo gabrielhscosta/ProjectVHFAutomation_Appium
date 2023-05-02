@@ -227,14 +227,9 @@ namespace VHFAutomation.CommonMethods
                 ex.Message.ToString();
             }
 
-            if (statusResGrp == status)
+            if (statusResGrp != status)
             {
-                Console.WriteLine("\nStatus da reserva é Cancelada.");
-            }
-
-            else
-            {
-                throw new AccessViolationException("\nErro na formação do Orçamento Reserva.");
+                throw new AccessViolationException("\nErro no cancelamento da reserva de grupo.");
             }
 
             return statusResGrp;

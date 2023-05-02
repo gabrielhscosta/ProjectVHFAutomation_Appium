@@ -75,7 +75,6 @@ namespace VHFAutomation.CommonMethods
                 Assert.AreEqual(soma, t.Valor);
                 Assert.AreEqual(soma, t.ValorTarifa);
             }
-
         }
 
         public void ValidaStatusReservaGrp(int status)
@@ -83,6 +82,5 @@ namespace VHFAutomation.CommonMethods
             int statusResGrp = realizaConsultas.SelectValidarStatusResGrupo(status);
             Assert.AreEqual(status, statusResGrp);
         }
-
     }
 }

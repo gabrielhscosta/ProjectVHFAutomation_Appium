@@ -587,7 +587,7 @@ namespace VHFAutomation.CommonMethods
 
         public void LoopingCancelamentoReservasGrupo()
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 CancelarReservaGrupo();
                 ValidarSituacaoResGrupo();
