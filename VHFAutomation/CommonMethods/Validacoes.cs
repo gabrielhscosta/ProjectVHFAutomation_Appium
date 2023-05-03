@@ -82,5 +82,17 @@ namespace VHFAutomation.CommonMethods
             int statusResGrp = realizaConsultas.SelectValidarStatusResGrupo(status);
             Assert.AreEqual(status, statusResGrp);
         }
+
+        public void ValidaQtdHospedesAcomodacaoGrp(int qtdAdultos, int qtdCriancaUm, int qtdCriancaDois)
+        {
+            List<QtdHospedesAcomodacao> lista = realizaConsultas.SelectValidarQtdHospedesAcomodacaoGrp();
+
+            foreach (QtdHospedesAcomodacao q in lista)
+            {
+                Assert.AreEqual(qtdAdultos, q.Adulto);
+                Assert.AreEqual(qtdCriancaUm, q.Crianca1);
+                Assert.AreEqual(qtdCriancaDois, q.Crianca2);
+            }
+        }
     }
 }

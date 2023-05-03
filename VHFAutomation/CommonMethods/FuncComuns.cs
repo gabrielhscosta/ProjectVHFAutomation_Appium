@@ -587,7 +587,7 @@ namespace VHFAutomation.CommonMethods
 
         public void LoopingCancelamentoReservasGrupo()
         {
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 10; i++)
             {
                 CancelarReservaGrupo();
                 ValidarSituacaoResGrupo();
@@ -601,5 +601,30 @@ namespace VHFAutomation.CommonMethods
         {
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnSair).Click();
         }
+
+        public void AlterarQtdHospedesAcomodacoesGrupo(string qtdHospedes)
+        {
+            acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.First());
+
+            var altResGrp = acessarModulo.FindElementByName(appObjects.winAlterarResGrupo);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnEditar).Click();
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TDBEdit).ElementAt(2).Clear();
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TDBEdit).ElementAt(2).SendKeys(qtdHospedes);
+
+            altResGrp.SendKeys(Keys.Tab);
+
+            Elementos.EncontraElementosName(acessarModulo, appObjects.btnConfirmar).ElementAt(2).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnConfirmar).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.scrTMessageForm);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnSim).Click();
+        }
+
+
     }
 }

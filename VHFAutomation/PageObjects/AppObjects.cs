@@ -59,6 +59,7 @@ namespace VHFAutomation.PageObjects
         public string comboBoxAgenciaTS = ("TCMDBLookupCombo");
         public string comboBoxGridTs = ("TwwPopupGrid");
         public string TComboBox = ("TComboBox");
+        public string TDBEdit = ("TDBEdit");
 
         #endregion
 
@@ -105,6 +106,7 @@ namespace VHFAutomation.PageObjects
         public string winCancelamentoResGrupo = ("Cancelamento de Reserva de Grupo");
         public string winConsultaGeral = ("Consulta Geral");
         public string winCancelarResGrupo = ("Cancelar Reserva de Grupo");
+        public string winAlterarResGrupo = ("Alterar Reserva de Grupo");
 
         #endregion
 

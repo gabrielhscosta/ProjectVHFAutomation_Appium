@@ -235,11 +235,57 @@ namespace VHFAutomation.CommonMethods
             return statusResGrp;
         }
 
+        public List<QtdHospedesAcomodacao> SelectValidarQtdHospedesAcomodacaoGrp()
+        {
+            SqlCommand cmd = new SqlCommand();
+
+            SqlDataReader reader = null;
+
+            List<QtdHospedesAcomodacao> lista = null;
+
+            cmd.CommandText = "select Adulto, Crianca1, Crianca2" +
+                " from ACOMODACAO" +
+                " where IdReservaGrupo = " + FuncComuns.numResGrp.Text;
+
+            try
+            {
+                cmd.Connection = conexaoBd.conectar();
+                reader = (cmd.ExecuteReader());
+                lista = new List<QtdHospedesAcomodacao>();
+
+
+                while (reader.Read())
+                {
+                    var tmp = new QtdHospedesAcomodacao();
+                    tmp.Adulto = Convert.ToInt32(reader["Adulto"]);
+                    tmp.Crianca1 = Convert.ToInt32(reader["Crianca1"]);
+                    tmp.Crianca2 = Convert.ToInt32(reader["Crianca2"]);
+                    lista.Add(tmp);
+                }
+                conexaoBd.desconectar();
+
+            }
+
+            catch (SqlException ex)
+            {
+                ex.Message.ToString();
+            }
+
+            return lista;
+        }
+
         public class TarifaConsulta
         {
             public string Descricao { get; set; }
             public int Valor { get; set; }
             public int ValorTarifa { get; set; }
+        }
+
+        public class QtdHospedesAcomodacao
+        {
+            public int Adulto { get; set; }
+            public int Crianca1 { get; set; }
+            public int Crianca2 { get; set; }
         }
     }
 }

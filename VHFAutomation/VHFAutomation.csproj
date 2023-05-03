@@ -112,6 +112,7 @@
     <Compile Include="TestCase\ST01_ReservaIndividual\CN0101InserirReservaComUmHospedeNovoSemHistoricoeEmpresa.cs" />
     <Compile Include="TestCase\ST02_OrcamentoReserva\CN0201FazerReservaComAlteracoesProgramadas.cs" />
     <Compile Include="TestCase\ST03_ReservaGrupo\CN0302ValidarAnexoNaReservaDeGrupo.cs" />
+    <Compile Include="TestCase\ST04_OrcamentoResGrupo\CN043.cs" />
     <Compile Include="TestCase\STEXTRA01_LoopCancelarReserva\CN_CancelarReservaIndividual.cs" />
     <Compile Include="TestCase\STEXTRA02_LoopCancelarReservaGrp\CN_CancelarReservaGrupo.cs" />
   </ItemGroup>
