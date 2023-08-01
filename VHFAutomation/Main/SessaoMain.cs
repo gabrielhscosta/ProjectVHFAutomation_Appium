@@ -358,5 +358,20 @@ namespace VHFAutomation.Main
         }
 
         #endregion
+
+
+
+        #region ST04EXTRA_Alterar Status Da Governanca
+
+        [TestMethod, TestCategory("STEXTRA04_Alterar_Status_Da_Governanca")]
+        public void CN01EXTRA_Alterar_Status_Da_Governanca_Para_Limpo()
+        {
+            CN001LoginVHF vloginvhf = new CN001LoginVHF();
+            vloginvhf.ValidaLoginVHF();
+            CN_AlterarStatusDaGovernancaParaLimpo cnExtra04 = new CN_AlterarStatusDaGovernancaParaLimpo();
+            cnExtra04.AlterarStatusDaGovernancaParaLimpo();
+        }
+
+        #endregion
     }
 }

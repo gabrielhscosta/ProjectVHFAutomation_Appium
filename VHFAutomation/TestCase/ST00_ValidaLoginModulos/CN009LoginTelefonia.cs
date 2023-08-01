@@ -56,11 +56,11 @@ namespace VHFAutomation.TestCase
 
             #region Seleciona Empresa
 
-            Elementos.EncontraElementoClassName(acessarModulo, appObjectsTel.comboBoxLogin);
+            Elementos.EncontraElementoClassName(acessarModulo, appObjectsTel.TwwDBLookupCombo);
 
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsTel.comboBoxLogin).ElementAt(0).Clear();
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsTel.comboBoxLogin).ElementAt(0).SendKeys(appObjectsTel.empresaSys);
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsTel.comboBoxLogin).ElementAt(0).SendKeys(Keys.Tab);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsTel.TwwDBLookupCombo).ElementAt(0).Clear();
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsTel.TwwDBLookupCombo).ElementAt(0).SendKeys(appObjectsTel.empresaSys);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsTel.TwwDBLookupCombo).ElementAt(0).SendKeys(Keys.Tab);
 
             Elementos.EncontraElementoName(acessarModulo, appObjectsTel.btnConfirmar).Click();
 

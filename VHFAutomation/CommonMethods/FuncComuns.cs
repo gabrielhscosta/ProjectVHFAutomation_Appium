@@ -13,6 +13,7 @@ using OpenQA.Selenium.Appium.Windows;
 using OpenQA.Selenium.Appium;
 using System.Threading;
 using StringExtensionLibrary;
+using YamlDotNet.Core.Tokens;
 
 namespace VHFAutomation.CommonMethods
 {
@@ -792,6 +793,32 @@ namespace VHFAutomation.CommonMethods
             Elementos.EncontraElementoName(acessarModulo, appObjects.scrTMessageForm);
 
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnSim).Click();
+        }
+
+        public void AbrirTelaStatusDaGovernanca()
+        {
+            Elementos.EncontraElementoClassName(acessarModulo, appObjects.scrTelaPrincipal);
+
+            var allTBit = acessarModulo.FindElementsByClassName(appObjects.TBitBtn);
+            Debug.WriteLine(allTBit.Count);
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TBitBtn).ElementAt(6).Click();
+        }
+
+        public void AlterarStatusDaGovernanca()
+        {
+            var allTwwDBLookupCombo = acessarModulo.FindElementsByClassName(appObjects.TwwDBLookupCombo);
+            Debug.WriteLine(allTwwDBLookupCombo.Count);
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TwwDBLookupCombo).ElementAt(9).SendKeys("Vago");
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TwwDBLookupCombo).ElementAt(9).SendKeys("Sujo");
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TwwDBLookupCombo).ElementAt(9).SendKeys(Keys.Tab);
+
+            Elementos.EncontraElementoName(acessarModulo, "Seleciona todas").Click();
+
+            Elementos.EncontraElementoName(acessarModulo, "Limpo").Click();
         }
     }
 }

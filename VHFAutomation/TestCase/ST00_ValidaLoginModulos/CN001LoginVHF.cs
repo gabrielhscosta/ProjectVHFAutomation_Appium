@@ -71,11 +71,11 @@ namespace VHFAutomation.TestCase
 
             Thread.Sleep(1000);
 
-            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhf.comboBoxLogin);
+            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhf.TwwDBLookupCombo);
 
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.comboBoxLogin).ElementAt(0).Clear();
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.comboBoxLogin).ElementAt(0).SendKeys(appObjectsVhf.empresaSys);
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.comboBoxLogin).ElementAt(0).SendKeys(Keys.Tab);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).Clear();
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).SendKeys(appObjectsVhf.empresaSys);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhf.TwwDBLookupCombo).ElementAt(0).SendKeys(Keys.Tab);
 
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnConfirmar).Click();
 

@@ -57,11 +57,11 @@ namespace VHFAutomation.TestCase
 
             #region Seleciona Empresa
 
-            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhfCaixa.comboBoxLogin);
+            Elementos.EncontraElementoClassName(acessarModulo, appObjectsVhfCaixa.TwwDBLookupCombo);
 
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhfCaixa.comboBoxLogin).ElementAt(0).Clear();
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhfCaixa.comboBoxLogin).ElementAt(0).SendKeys( appObjectsVhfCaixa.empresaSys);
-            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhfCaixa.comboBoxLogin).ElementAt(0).SendKeys(Keys.Tab);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhfCaixa.TwwDBLookupCombo).ElementAt(0).Clear();
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhfCaixa.TwwDBLookupCombo).ElementAt(0).SendKeys( appObjectsVhfCaixa.empresaSys);
+            Elementos.EncontraElementosClassName(acessarModulo, appObjectsVhfCaixa.TwwDBLookupCombo).ElementAt(0).SendKeys(Keys.Tab);
 
             Elementos.EncontraElementoName(acessarModulo,  appObjectsVhfCaixa.btnConfirmar).Click();
 

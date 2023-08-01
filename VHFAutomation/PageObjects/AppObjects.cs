@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VHFAutomation.Main;
 
 namespace VHFAutomation.PageObjects
 {
@@ -57,7 +58,7 @@ namespace VHFAutomation.PageObjects
         public string TwwDBEdit = ("TwwDBEdit");
         public string TCMDateTimePicker = ("TCMDateTimePicker");
         public string TCMDBLookupCombo = ("TCMDBLookupCombo");
-        public string comboBoxLogin = ("TwwDBLookupCombo");
+        public string TwwDBLookupCombo = ("TwwDBLookupCombo");
         public string abrirCombo = ("TBtnWinControl");
         public string comboBoxAgenciaTS = ("TCMDBLookupCombo");
         public string comboBoxGridTs = ("TwwPopupGrid");

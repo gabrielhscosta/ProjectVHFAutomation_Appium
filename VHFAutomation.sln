@@ -5,8 +5,6 @@ VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VHFAutomation", "VHFAutomation\VHFAutomation.csproj", "{B457BDC3-32FB-4EB3-AB3C-8B0734A2F30C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Relatorios_VHF", "..\..\Relatorios_VHF\Relatorios_VHF\Relatorios_VHF.csproj", "{39817853-17C5-4904-8900-7CE5D024923A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{B457BDC3-32FB-4EB3-AB3C-8B0734A2F30C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B457BDC3-32FB-4EB3-AB3C-8B0734A2F30C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B457BDC3-32FB-4EB3-AB3C-8B0734A2F30C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39817853-17C5-4904-8900-7CE5D024923A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39817853-17C5-4904-8900-7CE5D024923A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39817853-17C5-4904-8900-7CE5D024923A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39817853-17C5-4904-8900-7CE5D024923A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
