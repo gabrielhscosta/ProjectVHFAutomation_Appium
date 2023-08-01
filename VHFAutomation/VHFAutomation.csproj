@@ -115,6 +115,7 @@
     <Compile Include="TestCase\ST04_OrcamentoResGrupo\CN043.cs" />
     <Compile Include="TestCase\STEXTRA01_LoopCancelarReserva\CN_CancelarReservaIndividual.cs" />
     <Compile Include="TestCase\STEXTRA02_LoopCancelarReservaGrp\CN_CancelarReservaGrupo.cs" />
+    <Compile Include="TestCase\STEXTRA03_CheckOut_SemLancamento\CN_CheckOutReservaIndividual.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

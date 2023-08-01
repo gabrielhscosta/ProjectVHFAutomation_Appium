@@ -23,8 +23,6 @@ namespace VHFAutomation.TestCase
 
         }
 
-        AppObjects appObjects = new AppObjects();
-
         public void CancelarReservaGrupo()
         {
             FuncComuns funcComuns = new FuncComuns();

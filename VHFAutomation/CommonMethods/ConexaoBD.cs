@@ -33,6 +33,5 @@ namespace VHFAutomation.CommonMethods
                 conn.Close();
             }
         }
-
     }
 }

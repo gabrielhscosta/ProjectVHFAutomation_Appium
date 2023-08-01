@@ -20,7 +20,7 @@ namespace VHFAutomation.CommonMethods
     {
         public FuncComuns()
         {
-            
+
         }
 
         AppObjects appObjects = new AppObjects();
@@ -45,6 +45,11 @@ namespace VHFAutomation.CommonMethods
                 Elementos.EncontraElementoTagName(acessarModulo, appObjects.tagMenuItem);
                 Elementos.EncontraElementoTagName(acessarModulo, appObjects.tagMenuItem).SendKeys(Keys.Alt + tecla1 + tecla2);
             }
+        }
+
+        public void ChamarAltTab()
+        {
+            Elementos.EncontraElementoClassName(acessarModulo, appObjects.scrTelaPrincipalCAIXA).SendKeys(Keys.Alt + Keys.Tab);
         }
 
         public void AcessarSubMenu(string menu)
@@ -121,21 +126,21 @@ namespace VHFAutomation.CommonMethods
             var dadosHosp = GeradorDadosFakes.ListaDadosFakerPessoa();
 
             Elementos.EncontraElementosClassName(acessarModulo, appObjects.TEdit).ElementAt(19).SendKeys(dadosHosp.NomeFaker);
-            
+
             Elementos.EncontraElementosClassName(acessarModulo, appObjects.TEdit).ElementAt(20).SendKeys(dadosHosp.SobrenomeFaker);
-            
+
             Elementos.EncontraElementosClassName(acessarModulo, appObjects.TEdit).ElementAt(18).SendKeys(dadosHosp.EmailFaker);
-            
+
             Elementos.EncontraElementosClassName(acessarModulo, appObjects.TCMDBLookupCombo).ElementAt(1).SendKeys(dadosHosp.TratamentoHosp);
-            
+
             Elementos.EncontraElementosClassName(acessarModulo, appObjects.TCMDateTimePicker).ElementAt(3).SendKeys(dadosHosp.DtNascFaker);
 
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnCidade).Click();
             Elementos.EncontraElementoName(acessarModulo, appObjects.winSelecCidade);
             Elementos.EncontraElementosClassName(acessarModulo, appObjects.TEdit).ElementAt(6).SendKeys(dadosHosp.CidadeFaker);
-            
+
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnProcurar).Click();
-            
+
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnConfirmar).Click();
 
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnIdioma).Click();
@@ -172,7 +177,7 @@ namespace VHFAutomation.CommonMethods
         public void ValidarSituacaoRes()
         {
             Debug.WriteLine($"*** Identificar janelas {acessarModulo.WindowHandles}");
-            
+
             var winSitRes = acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.ElementAt(0));
             winSitRes.Title.ToString();
 
@@ -220,7 +225,7 @@ namespace VHFAutomation.CommonMethods
 
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnOK).Click();
         }
-        
+
         public void BuscarHospComHistoricoEstada()
         {
             Elementos.EncontraElementosClassName(acessarModulo, appObjects.TBitBtn).ElementAt(46).Click();
@@ -245,7 +250,7 @@ namespace VHFAutomation.CommonMethods
             var resDisp = gridDisp.FindElementByClassName("TfrmReservaDisp");
 
             var selecPeriodo = resDisp.FindElementByClassName("TStringGrid");
-            
+
             new Actions(acessarModulo).MoveToElement(selecPeriodo, 134, 105).Click().Perform();
             new Actions(acessarModulo).MoveToElement(selecPeriodo, 329, 105).Click().Perform();
 
@@ -474,14 +479,29 @@ namespace VHFAutomation.CommonMethods
 
         public void AbrirTelaConsultaGeral()
         {
+            Elementos.EncontraElementoClassName(acessarModulo, appObjects.scrTelaPrincipal);
+
             Elementos.EncontraElementosClassName(acessarModulo, appObjects.TBitBtn).ElementAt(6).Click();
         }
 
         public void SelecionarStatusResConfirmadaConsultaGeral()
         {
             var cGeral = acessarModulo.FindElementByName(appObjects.winConsultaGeral);
-            
+
             Elementos.EncontraElementosClassName(acessarModulo, appObjects.TComboBox).ElementAt(1).SendKeys(appObjects.statusResConfirmada);
+
+            cGeral.SendKeys(Keys.Tab);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnProcurar).Click();
+        }
+
+        public void SelecionarStatusResCheckInConsultaGeral()
+        {
+            Thread.Sleep(TimeSpan.FromSeconds(10));
+
+            var cGeral = acessarModulo.FindElementByName(appObjects.winConsultaGeral);
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TComboBox).ElementAt(1).SendKeys(appObjects.statusResCheckIn);
 
             cGeral.SendKeys(Keys.Tab);
 
@@ -493,7 +513,7 @@ namespace VHFAutomation.CommonMethods
             var cGeral = acessarModulo.FindElementByName(appObjects.winConsultaGeral);
 
             //Clica na primeira linha de reserva na consulta geral
-            new Actions(acessarModulo).MoveToElement(cGeral, 1080, 148).Click().Perform();
+            new Actions(acessarModulo).MoveToElement(cGeral, 660, 108).Click().Perform();
 
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnCancelar).Click();
 
@@ -512,14 +532,140 @@ namespace VHFAutomation.CommonMethods
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnOK).Click();
 
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnNao).Click();
+
+            acessarModulo.SwitchTo().Window(acessarModulo.WindowHandles.ElementAt(0));
+        }
+
+        public void PrimeiraEtapaCheckOutReservaIndividual()
+        {
+            var cGeral = acessarModulo.FindElementByName(appObjects.winConsultaGeral);
+
+            //Clica na primeira linha de reserva na consulta geral
+            new Actions(acessarModulo).MoveToElement(cGeral, 660, 108).Click().Perform();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnCaixa).Click();
+
+            Thread.Sleep(TimeSpan.FromSeconds(20));
+
+            IntPtr myAppTopLevelWindowHandleVhfCaixa = new IntPtr();
+            foreach (Process clsProcess in Process.GetProcesses())
+            {
+                if (clsProcess.ProcessName.Contains("VHFCaixa"))
+                {
+                    myAppTopLevelWindowHandleVhfCaixa = clsProcess.MainWindowHandle;
+                    break;
+                }
+            }
+
+            var appTopLevelWindowHandleHexVhfCaixa = myAppTopLevelWindowHandleVhfCaixa.ToString("x");
+
+            AppiumOptions appCapabilities = new AppiumOptions();
+            appCapabilities.AddAdditionalCapability("appTopLevelWindow", appTopLevelWindowHandleHexVhfCaixa);
+
+            acessarModulo = new WindowsDriver<WindowsElement>(new Uri("http://127.0.0.1:4723"), appCapabilities);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnEncerrarContas).Click();
+
+            Thread.Sleep(2000);
+
+            Elementos.EncontraElementoClassName(acessarModulo, appObjects.scrTMessageForm);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnSim).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnSim).Click();
+        }
+
+        public void CheckOutReservaIndividual()
+        {
+            var cGeral = acessarModulo.FindElementByName(appObjects.winConsultaGeral);
+
+            //Elementos.EncontraElementoName(acessarModulo, "Buscar por").Click();
+
+            //Elementos.EncontraElementoName(acessarModulo, appObjects.btnProcurar).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnSair).Click();
+
+            Elementos.EncontraElementoClassName(acessarModulo, appObjects.scrTelaPrincipal);
+
+            Elementos.EncontraElementosClassName(acessarModulo, appObjects.TBitBtn).ElementAt(6).Click();
+
+            SelecionarStatusResCheckInConsultaGeral();
+
+            var cGeral1 = acessarModulo.FindElementByName(appObjects.winConsultaGeral);
+
+            //Clica na primeira linha de reserva na consulta geral
+            new Actions(acessarModulo).MoveToElement(cGeral1, 660, 108).Click().Perform();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnCaixa).Click();
+
+            Thread.Sleep(TimeSpan.FromSeconds(20));
+
+            IntPtr myAppTopLevelWindowHandleVhfCaixa = new IntPtr();
+            foreach (Process clsProcess in Process.GetProcesses())
+            {
+                if (clsProcess.ProcessName.Equals("VHFCaixa"))
+                {
+                    myAppTopLevelWindowHandleVhfCaixa = clsProcess.MainWindowHandle;
+                    break;
+                }
+            }
+
+            var appTopLevelWindowHandleHexVhfCaixa = myAppTopLevelWindowHandleVhfCaixa.ToString("x");
+
+            AppiumOptions appCapabilities = new AppiumOptions();
+            appCapabilities.AddAdditionalCapability("appTopLevelWindow", appTopLevelWindowHandleHexVhfCaixa);
+
+            acessarModulo = new WindowsDriver<WindowsElement>(new Uri("http://127.0.0.1:4723"), appCapabilities);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnEncerrarContas).Click();
+
+            Thread.Sleep(2000);
+
+            Elementos.EncontraElementoClassName(acessarModulo, appObjects.scrTMessageForm);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnSim).Click();
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnSim).Click();
+        }
+
+        public void AcessarVHF()
+        {
+            IntPtr myAppTopLevelWindowHandleVhf = new IntPtr();
+            foreach (Process clsProcess in Process.GetProcesses())
+            {
+                if (clsProcess.ProcessName.Equals("VHF"))
+                {
+                    myAppTopLevelWindowHandleVhf = clsProcess.MainWindowHandle;
+                    break;
+                }
+            }
+
+            var appTopLevelWindowHandleHexVhf = myAppTopLevelWindowHandleVhf.ToString("x");
+
+            AppiumOptions appCapabilities = new AppiumOptions();
+            appCapabilities.AddAdditionalCapability("appTopLevelWindow", appTopLevelWindowHandleHexVhf);
+
+            acessarModulo = new WindowsDriver<WindowsElement>(new Uri("http://127.0.0.1:4723"), appCapabilities);
+
+            Elementos.EncontraElementoClassName(acessarModulo, appObjects.scrTelaPrincipal);
         }
 
         public void LoopingCancelamentoReservas()
         {
-            for(int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
                 CancelarReservaIndividual();
                 Console.WriteLine("Reserva individual cancelada com sucesso");
+            }
+        }
+
+        public void LoopingCheckOutReservas()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                AcessarVHF();
+                CheckOutReservaIndividual();
+                Console.WriteLine("Reserva individual encerrada com sucesso");
             }
         }
 
@@ -568,7 +714,7 @@ namespace VHFAutomation.CommonMethods
             var winSelec = acessarModulo.FindElementByClassName(appObjects.scrMontaSelect);
 
             //Clica na primeira linha da lista de reserva grupo
-            new Actions(acessarModulo).MoveToElement(winSelec, 344, 128).Click().Perform();
+            new Actions(acessarModulo).MoveToElement(winSelec, 344, 90).Click().Perform();
 
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnConfirmar).Click();
 
@@ -587,7 +733,7 @@ namespace VHFAutomation.CommonMethods
 
         public void LoopingCancelamentoReservasGrupo()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
                 CancelarReservaGrupo();
                 ValidarSituacaoResGrupo();
@@ -600,6 +746,15 @@ namespace VHFAutomation.CommonMethods
         public void SairTela()
         {
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnSair).Click();
+        }
+
+        public void SairTelaVHFCaixa()
+        {
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnSair).Click();
+
+            Elementos.EncontraElementoClassName(acessarModulo, appObjects.scrTMessageForm);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnSim).Click();
         }
 
         public void AlterarQtdHospedesAcomodacoesGrupo(string qtdHospedes)
@@ -625,6 +780,18 @@ namespace VHFAutomation.CommonMethods
             Elementos.EncontraElementoName(acessarModulo, appObjects.btnSim).Click();
         }
 
+        public void MaximizarTelaConsultaGeral()
+        {
+            Elementos.EncontraElementoName(acessarModulo, appObjects.winConsultaGeral);
 
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnMaximizar).Click();
+        }
+
+        public void EncerramentoAutomaticoVhfCaixa()
+        {
+            Elementos.EncontraElementoName(acessarModulo, appObjects.scrTMessageForm);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjects.btnSim).Click();
+        }
     }
 }

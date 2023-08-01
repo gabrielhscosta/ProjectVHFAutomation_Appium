@@ -96,6 +96,8 @@ namespace VHFAutomation.TestCase
 
             #region Janela Atenção
 
+            Thread.Sleep(12000);
+
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.txtAlertAtencao);
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhf.btnOK).Click();
 

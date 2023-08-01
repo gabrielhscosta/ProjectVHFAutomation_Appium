@@ -28,6 +28,7 @@ namespace VHFAutomation.PageObjects
         public string btnConfirmar = ("Confirmar");
         public string btnOK = ("OK");
         public string btnCancelar = ("Cancelar");
+        public string btnCaixa = ("Caixa");
         public string btnSair = ("Sair");
         public string btnSim = ("Sim");
         public string btnNao = ("Não");
@@ -43,6 +44,8 @@ namespace VHFAutomation.PageObjects
         public string btnDocHosp = ("documentohospede");
         public string btnContrato = ("contrato");
         public string btnContinuar = ("Continuar");
+        public string btnMaximizar = ("Maximizar");
+        public string btnEncerrarContas = ("Encerrar contas");
 
         #endregion
 
@@ -147,6 +150,7 @@ namespace VHFAutomation.PageObjects
         public string docCliente = ("77048338000148");
         public string docHospEstada = ("88180094600");
         public string statusResConfirmada = ("Confirmada");
+        public string statusResCheckIn = ("Check-in");
         public string motivoCancRes = ("Cancelamento CMNet");
 
         #endregion

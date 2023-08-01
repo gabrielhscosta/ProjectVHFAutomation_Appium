@@ -39,6 +39,7 @@ namespace VHFAutomation.TestCase
             #endregion
 
 
+
             #region Usuário e Pass Sistema
 
             WebDriverWait waitLogin = new WebDriverWait(acessarModulo, TimeSpan.FromSeconds(60));
@@ -66,6 +67,16 @@ namespace VHFAutomation.TestCase
 
             #endregion
 
+
+
+            #region Janela Registro de versão
+
+            Thread.Sleep(5000);
+
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhfCaixa.txtAlertLicenca);
+            Elementos.EncontraElementoName(acessarModulo, appObjectsVhfCaixa.btnContinuar).Click();
+
+            #endregion
         }
 
         public void ConferenciaTelaPrincipalVHFCaixa() 
@@ -75,6 +86,8 @@ namespace VHFAutomation.TestCase
             WebDriverWait waitLogin = new WebDriverWait(acessarModulo, TimeSpan.FromSeconds(60));
 
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhfCaixa.scrTelaCartaoConsCaixa);
+
+            Thread.Sleep(1000);
 
             Elementos.EncontraElementoName(acessarModulo, appObjectsVhfCaixa.btnCancelar).Click();
 
@@ -107,8 +120,6 @@ namespace VHFAutomation.TestCase
             {
                 acessarModulo.Quit();
             }
-
         }
-
     }
 }

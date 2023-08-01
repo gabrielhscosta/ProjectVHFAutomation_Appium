@@ -4,7 +4,7 @@ using OpenQA.Selenium.Appium.Windows;
 using System;
 using VHFAutomation.TestCase;
 using VHFAutomation.CommonMethods;
-
+using OpenQA.Selenium.Appium.Service;
 
 namespace VHFAutomation.Main
 {
@@ -48,6 +48,11 @@ namespace VHFAutomation.Main
             RegistraBaseHomologacaoVhfCaixa("QA_FRONT", "MSSQL", "RJOSRVDBODEV001");
 
 
+            /*var appiumLocalService = new AppiumServiceBuilder().UsingPort(4723).Build();
+            appiumLocalService.Start();
+
+            appiumLocalService.Dispose();*/
+
 
             // *** Inicialização do módulo ***
 
@@ -57,9 +62,7 @@ namespace VHFAutomation.Main
                 session1.AddAdditionalCapability("app", dirAplicacaoVHF);
 
                 acessarModulo = new WindowsDriver<WindowsElement>(new Uri(winAppDriverUrl), session1);
-
             }
-
         }
 
         [ClassCleanup]
@@ -71,7 +74,6 @@ namespace VHFAutomation.Main
                 //acessarModulo.Quit();
                 //acessarModulo = null;
             }
-
         }
 
         #endregion
@@ -100,7 +102,6 @@ namespace VHFAutomation.Main
             CN002LoginVHFCaixa vloginvhfcaixa = new CN002LoginVHFCaixa();
             vloginvhfcaixa.ValidaLoginVHFCaixa();
             vloginvhfcaixa.ConferenciaTelaPrincipalVHFCaixa();
-            vloginvhfcaixa.CN002TearDown();
         }
 
         #endregion
@@ -339,6 +340,21 @@ namespace VHFAutomation.Main
             vloginvhf.ValidaLoginVHF();
             CN_CancelarReservaGrupo cnExtra02 = new CN_CancelarReservaGrupo();
             cnExtra02.CancelarReservaGrupo();
+        }
+
+        #endregion
+
+
+
+        #region ST01EXTRA_Cancelamento de Reserva Grupo
+
+        [TestMethod, TestCategory("STEXTRA03_Check-Out de Reserva Individual")]
+        public void CN03Extra_CheckOutReservaIndividual()
+        {
+            CN001LoginVHF vLoginVhf = new CN001LoginVHF();
+            vLoginVhf.ValidaLoginVHF();
+            CN_CheckOutReservaIndividual cnExtra03 = new CN_CheckOutReservaIndividual();
+            cnExtra03.CheckOutReservaIndividual();
         }
 
         #endregion

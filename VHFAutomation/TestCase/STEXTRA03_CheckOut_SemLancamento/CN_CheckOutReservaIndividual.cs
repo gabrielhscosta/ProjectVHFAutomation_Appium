@@ -11,31 +11,34 @@ using OpenQA.Selenium;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Appium.Windows;
+using OpenQA.Selenium.Appium.Interfaces;
 
 namespace VHFAutomation.TestCase
 {
 
-    public class CN_CancelarReservaIndividual : SessaoMain
+    public class CN_CheckOutReservaIndividual : SessaoMain
     {
 
-        public CN_CancelarReservaIndividual()
+        public CN_CheckOutReservaIndividual()
         {
 
         }
 
-        public void CancelarReservaIndividual()
+        public void CheckOutReservaIndividual()
         {
             FuncComuns funcComuns = new FuncComuns();
 
             funcComuns.AbrirTelaConsultaGeral();
 
-            funcComuns.SelecionarStatusResConfirmadaConsultaGeral();
+            funcComuns.SelecionarStatusResCheckInConsultaGeral();
 
-            funcComuns.LoopingCancelamentoReservas();
+            funcComuns.PrimeiraEtapaCheckOutReservaIndividual();
 
-            funcComuns.MaximizarTelaConsultaGeral();
+            funcComuns.LoopingCheckOutReservas();
 
-            funcComuns.ValidarTelaPrincipalVhf();
+            funcComuns.AcessarVHF();
+
+            funcComuns.EncerramentoAutomaticoVhfCaixa();
         }
     }
 }
